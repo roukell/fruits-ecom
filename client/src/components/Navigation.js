@@ -1,28 +1,39 @@
 import React from 'react';
-import { Nav } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
+import Badge from '@material-ui/core/Badge';
+import { withStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { Link } from 'react-router-dom';
 
-const Navigation = () => {
+const StyledBadge = withStyles((theme) => ({
+    badge: {
+        right: -3,
+        top: 13,
+        border: `2px solid ${theme.palette.background.paper}`,
+        padding: '0 4px',
+    },
+}))(Badge);
+
+const Navigation = ({ items }) => {
     return (
         <>
-            <Nav className="justify-content-center" activeKey="/home">
-                <Nav.Item>
-                    <Nav.Link href="/home">Pre-Order</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link eventKey="link-1">Products</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <h2>Hello Fruits</h2>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link eventKey="link-2">About</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link eventKey="link-3">
-                        Contact
-                </Nav.Link>
-                </Nav.Item>
-            </Nav>
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+                <Navbar.Brand>YSS Fruits</Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="mr-auto">
+                        {items.map(({ label, name, link }) => (
+                            <Nav.Link key={name}><Link to={link} />{label}</Nav.Link>
+                        ))}
+                    </Nav>
+                    <IconButton aria-label="cart">
+                        <StyledBadge badgeContent={0} color="secondary">
+                            <ShoppingCartIcon />
+                        </StyledBadge>
+                    </IconButton>
+                </Navbar.Collapse>
+            </Navbar>
         </>
     )
 }
