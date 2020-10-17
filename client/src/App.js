@@ -3,11 +3,9 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Home from '../src/pages/Home';
-import SigninSide from '../src/pages/SigninSide';
 
 function App() {
   return (
@@ -17,9 +15,6 @@ function App() {
           <Route path="/">
             <Home />
           </Route>
-          {/* <Route path="/signin">
-            <SigninSide />
-          </Route> */}
         </Switch>
       </div>
     </Router>
