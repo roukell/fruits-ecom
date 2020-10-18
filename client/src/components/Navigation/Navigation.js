@@ -1,10 +1,11 @@
 import React from 'react';
-import { Navbar, Nav } from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 import Badge from '@material-ui/core/Badge';
 import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { Link } from 'react-router-dom';
+import './Navigation.css';
 
 const StyledBadge = withStyles((theme) => ({
     badge: {
@@ -18,8 +19,15 @@ const StyledBadge = withStyles((theme) => ({
 const Navigation = ({ items }) => {
     return (
         <>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <Navbar.Brand>YSS Fruits</Navbar.Brand>
+            <Navbar collapseOnSelect expand="lg" bg="light" sticky="top">
+                <Container>
+                <Navbar.Brand className='circle'>
+                    <p className='circle-content'>
+                       Pure 
+                       <br/>
+                       Fruit 
+                    </p>
+                    </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
@@ -32,7 +40,8 @@ const Navigation = ({ items }) => {
                             <ShoppingCartIcon />
                         </StyledBadge>
                     </IconButton>
-                </Navbar.Collapse>
+                </Navbar.Collapse>    
+                </Container>
             </Navbar>
         </>
     )

@@ -1,0 +1,16 @@
+.circle {
+  background: #f1bbe4;
+  border-radius: 50%;
+  color: rgb(250, 244, 244);
+  height: 100px;
+  position: relative;
+  width: 100px;
+}
+
+.circle-content {
+  hyphens: auto;
+  margin: 0.75em;
+  text-align: center;
+  color: whitesmoke;
+}
+
