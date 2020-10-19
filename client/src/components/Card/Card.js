@@ -6,15 +6,16 @@ const card = ({ items }) => {
     const cardItems = items.map(({ title, text, price, image }) => {
         return (
          
-                <Card style={{ width: '18rem' }} key={title}>
+                <Card style={{ width: '20rem' }} key={title}>
                     <Card.Img variant="top" src={'image/' + image} />
                     <Card.Body>
                         <Card.Title>{title}</Card.Title>
                         <Card.Text>
                             {text}
+                            <hr/>
+                            {price}    
                         </Card.Text>
-                        <Button variant="primary">{price}</Button>
-                        <Button>Add to cart</Button>
+                        <Button variant="outline-danger" size="lg" block>Add to cart</Button>
                     </Card.Body>
                 </Card>
          
@@ -24,16 +25,12 @@ const card = ({ items }) => {
     return (
         <>
         <Container>
-             <h3>
-            BEST SELLERS
-             </h3>
             <CardDeck className="justify-content-md-center">
                 <Row xs={1} md={2} >
-                            {cardItems} 
+                {cardItems} 
                 </Row>
             </CardDeck>
-        </Container>
-       
+        </Container>    
         </>
     )
 };

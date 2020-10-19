@@ -21,7 +21,7 @@ function ControlledCarousel() {
             alt="First slide"
           />
           <Carousel.Caption>
-           <h3>Okayama White Peach In Season!</h3>
+           <h3>Okayama White Peach</h3>
             <Button variant="contained" color="primary">
             Pre-order
             </Button>
@@ -34,7 +34,7 @@ function ControlledCarousel() {
             alt="Second slide"
           />
           <Carousel.Caption>
-           <h3>Pearl White Straberry In Season!</h3>
+           <h3>Pearl White Strawberry</h3>
             <Button variant="contained" color="primary">
             Pre-order
             </Button>

@@ -6,3 +6,28 @@ h3 {
     padding: 30px;
     text-align: center;
 }
+
+div .card {
+    outline: transparent;
+}
+
+.card-deck {
+    margin-bottom:  30px;
+}
+
+div .card-title {
+    position: relative;
+    text-align: center;
+    justify-content: center;
+}
+
+div .card-text {
+    position: relative;
+    text-align: center;
+    justify-content: center;
+}
+
+.btn {
+    border-radius: 0;;
+    background-color: rgb(241, 186, 220);
+}

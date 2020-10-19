@@ -1,0 +1,13 @@
+h2, p {
+    text-align: center;
+    justify-content: center;
+    margin: auto;
+    padding: auto;
+}
+
+.aboutImg {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    margin-left: 23%;
+}

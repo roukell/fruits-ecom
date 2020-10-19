@@ -13,13 +13,11 @@ export default function SimpleAlerts(props) {
                 <Ticker speed={5} mode='smooth'>
                     {({ index }) => (
                         <>
-                            <p>
-                            <FontAwesomeIcon icon={faBullhorn} /> {' '}
-                            Okayama White Peach In Season! Pre-order ends 30/10/2020!
-                            </p>
-                            <hr />
                             <p className="mb-0">
-                            <FontAwesomeIcon icon={faBullhorn} /> {' '}
+                            <FontAwesomeIcon icon={faBullhorn} />{' '}
+                            Okayama White Peach In Season! Pre-order ends 30/10/2020!
+                            <hr/>
+                            <FontAwesomeIcon icon={faBullhorn} />{' '}
                             Pearl White Straberry In Season! Pre-order ends 12/12/2020!
                             </p>
                         </>

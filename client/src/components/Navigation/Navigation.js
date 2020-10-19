@@ -32,7 +32,7 @@ const Navigation = ({ items }) => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
                         {items.map(({ label, name, link }) => (
-                            <Nav.Link key={name}><Link to={link} />{label}</Nav.Link>
+                            <Nav.Link key={name} ><Link to={ link } style={{color: 'gray'}}>{ label }</Link></Nav.Link>
                         ))}
                     </Nav>
                     <IconButton aria-label="cart">
