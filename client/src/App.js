@@ -10,6 +10,7 @@ import customerNavbarItems from '../src/pages/Data/customerNavbaritems';
 import Home from '../src/pages/Home.js';
 import About from './pages/About/About.js';
 import Preorder from './pages/Preorder/Preorder.js';
+import Contact from './pages/Contact';
 import Footer from './components/Footer/Footer';
 
 function App() {
@@ -17,7 +18,13 @@ function App() {
     <Router>
       <div>
         <Navigation items={customerNavbarItems} />
+    
         <Switch>
+
+        <Route path='/contact'>
+            <Contact />
+          </Route>
+
         <Route path='/preorder'>
             <Preorder />
           </Route>

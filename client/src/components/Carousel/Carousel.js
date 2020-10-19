@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Carousel, Container } from 'react-bootstrap';
 import Button from '@bit/mui-org.material-ui.button';
 import './Carousel.css';
+import { Link } from 'react-router-dom';
 
 function ControlledCarousel() {
     const [index, setIndex] = useState(0);
@@ -23,7 +24,9 @@ function ControlledCarousel() {
           <Carousel.Caption>
            <h3>Okayama White Peach</h3>
             <Button variant="contained" color="primary">
-            Pre-order
+            <Link to='/preorder' style={{color: 'white', textDecoration: 'none'}}>
+                Pre-order
+              </Link>
             </Button>
           </Carousel.Caption>
         </Carousel.Item>
@@ -36,7 +39,9 @@ function ControlledCarousel() {
           <Carousel.Caption>
            <h3>Pearl White Strawberry</h3>
             <Button variant="contained" color="primary">
-            Pre-order
+              <Link to='/preorder' style={{color: 'white', textDecoration: 'none'}}>
+                Pre-order
+              </Link>
             </Button>
           </Carousel.Caption>
         </Carousel.Item>
