@@ -1,16 +1,31 @@
 import React, { useContext } from 'react';
 import { Icon, Menu, Sidebar } from 'semantic-ui-react';
 import './Sidebar.css';
-import OrderContext from '../../utils/Contexts/OrderContext.js';
+// import OrderContext from '../../utils/Contexts/OrderContext.js';
+import CancelIcon from '@material-ui/icons/Cancel';
 
-const MyRightSidebar = ({  visible, setVisible }) => {
-    const order = useContext(OrderContext);
-    console.log(order);
+const MyRightSidebar = ({ visible, setVisible }) => {
+    // const orderContext = useContext(OrderContext);
+    // const newOrder = orderContext.orders;
+    const newOrder = JSON.parse(localStorage.getItem('orders'));
 
-    return(
+    const mapMenuItems = newOrder.orders.map((item, i) => {
+                return (
+                <Menu.Item key={i}>
+                <div>
+                    {item.title.title} x {item.quantity.quantity}
+                    <span className='cancelIcon'>
+                        <CancelIcon />
+                    </span>
+                </div>
+            </Menu.Item>
+            )
+            })
+
+    return (
         <>
-        {/* sidebar component from Semantic ui */}
-        <Sidebar
+            {/* sidebar component from Semantic ui */}
+            <Sidebar
                 className='sidebar'
                 as={Menu}
                 animation='push'
@@ -25,18 +40,11 @@ const MyRightSidebar = ({  visible, setVisible }) => {
                 {/* sidebar menu */}
                 <Menu.Item>
                     <Icon name='cart' />
-                    Shopping Cart
+                    Your Order
                 </Menu.Item>
-                <Menu.Item as='a'>
-                    <p>
-                        {/* {order.orders.productTitle.title}
-                        <br/>
-                        <span>
-                        Quantity: {order.orders.quantity.quantity} 
-                        </span> */}
-                    </p>
-                </Menu.Item>
-                
+                <div>
+                    {mapMenuItems}
+                </div>
             </Sidebar>
         </>
     )

@@ -9,4 +9,8 @@ div.ui.inverted.vertical.labeled.icon.ui.push.right.wide.sidebar.menu {
     background-color: lightslategray;
     z-index: 10000;
   }
+
+.cancelIcon {
+  padding: 10px
+}
   

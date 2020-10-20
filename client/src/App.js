@@ -20,8 +20,9 @@ const App = () => {
   });
 
   // when Add to cart is clicked, then setOrderState to push new order to orders array
-  const onClick = (productTitle, quantity) => {
-    const orders = [...orderState.orders, {productTitle, quantity}];
+  const onClick = (title, quantity) => {
+    const orders = [...orderState.orders, {title, quantity}];
+    localStorage.setItem('orders', JSON.stringify({...orderState, orders}));
     setOrderState({...orderState, orders});
   }
 

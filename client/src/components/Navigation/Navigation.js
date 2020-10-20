@@ -42,8 +42,8 @@ const Navigation = ({ items }) => {
                     <Navbar.Toggle aria-controls='responsive-navbar-nav' />
                     <Navbar.Collapse id='responsive-navbar-nav'>
                         <Nav className='mr-auto'>
-                            {items.map(({ label, name, link }) => (
-                                <Nav key={name} ><Link to={link}>{label}</Link></Nav>
+                            {items.map(({ label, name, link }, i) => (
+                                <Nav key={i} ><Link to={link}>{label}</Link></Nav>
                             ))}
                         </Nav>
 
