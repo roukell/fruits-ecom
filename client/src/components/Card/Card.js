@@ -6,7 +6,7 @@ import MyVerticallyCenteredModal from '../Modal/Modal.js';
 const Cards = ({ items }) => {
     // modal variable
     const [modalShow, setModalShow] = useState(false);
-    const [modalProduct, setModalProduct] = useState();
+    const [modalProduct, setModalProduct] = useState('null');
 
     // onClick function 1: setModalShow to true
     const handleModal = () => {

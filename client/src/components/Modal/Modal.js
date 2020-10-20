@@ -1,7 +1,17 @@
 import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import './Modal.css';
 
 function MyVerticallyCenteredModal(props) {
+
+    console.log(props.value.title);
+    
+    // modal elements
+    const title = props.value.title;
+    const text = props.value.text;
+    const price = props.value.price;
+    const image =props.value.image;
+
     return (
       <Modal
         {...props}
@@ -11,16 +21,17 @@ function MyVerticallyCenteredModal(props) {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-              title
-        
+              {title}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>Centered Modal</h4>
+          <img 
+          className='d-block w-100'
+          src={'image/' + image} 
+          alt={title}></img>
+          <h4>{price}</h4>
           <p>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-            consectetur ac, vestibulum at eros.
+            {text}
           </p>
         </Modal.Body>
         <Modal.Footer>
