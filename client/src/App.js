@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -12,9 +12,21 @@ import About from './pages/About/About.js';
 import Preorder from './pages/Preorder/Preorder.js';
 import Contact from './pages/Contact/Contact.js';
 import Footer from './components/Footer/Footer';
+import OrderContext from './utils/Contexts/OrderContext.js';
 
-function App() {
+const App = () => {
+  const [orderState, setOrderState] = useState({
+    orders: []
+  });
+
+  // when Add to cart is clicked, then setOrderState to push new order to orders array
+  const onClick = (productTitle, quantity) => {
+    const orders = [...orderState.orders, {productTitle, quantity}];
+    setOrderState({...orderState, orders});
+  }
+
   return (
+    <OrderContext.Provider value={{orders: orderState.orders, onClick}}>    
     <Router>
       <div>
         <Navigation items={customerNavbarItems} />
@@ -41,6 +53,7 @@ function App() {
         <Footer />
       </div>
     </Router>
+    </OrderContext.Provider>
   );
 }
 

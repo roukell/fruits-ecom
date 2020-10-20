@@ -15,7 +15,6 @@ const Cards = ({ items }) => {
 
     // onClick function 2: setModalProduct to current product
     const handleProductChange = event => {
-        console.log(event.item);
         setModalProduct(event.item);
     }
 
@@ -24,7 +23,7 @@ const Cards = ({ items }) => {
         handleModal();
         handleProductChange(event);
     }
-    
+
     // render products items
     const cardItems = items.map((item) => {
         return (
@@ -43,7 +42,7 @@ const Cards = ({ items }) => {
                         value={item}
                         onClick={() => clickFunctions({item})}
                     >
-                        Add to cart
+                        VIEW DETAILS
                         </Button>
                     <MyVerticallyCenteredModal
                         value={modalProduct}

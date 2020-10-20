@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import './Modal.css';
+import TextField from '../TextField/TextField.js';
+import OrderContext from '../../utils/Contexts/OrderContext.js';
 
 function MyVerticallyCenteredModal(props) {
-
-    console.log(props.value.title);
-    
     // modal elements
     const title = props.value.title;
     // const text = props.value.text;
     const price = props.value.price;
     const image = props.value.image;
     const description = props.value.description;
+
+    // callback handler for receiving qauntity from TextField
+    const [quantity, setQuantity] = useState('0');
+    // function to setQuantity
+    const countQuantity = event => {
+        setQuantity(event.target.value);
+    }
+
+    // useContext for onClick event
+    const updateOrder = useContext(OrderContext);
 
     return (
       <Modal
@@ -31,6 +40,10 @@ function MyVerticallyCenteredModal(props) {
           src={'image/' + image} 
           alt={title}></img>
           <h3>{price}</h3>
+          <TextField onChange={countQuantity}/>
+          <Button onClick={() => updateOrder.onClick({title}, {quantity})} >
+              Add to cart
+          </Button>
           <p>
             {description}
           </p>
