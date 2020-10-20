@@ -8,9 +8,10 @@ function MyVerticallyCenteredModal(props) {
     
     // modal elements
     const title = props.value.title;
-    const text = props.value.text;
+    // const text = props.value.text;
     const price = props.value.price;
-    const image =props.value.image;
+    const image = props.value.image;
+    const description = props.value.description;
 
     return (
       <Modal
@@ -29,9 +30,9 @@ function MyVerticallyCenteredModal(props) {
           className='d-block w-100'
           src={'image/' + image} 
           alt={title}></img>
-          <h4>{price}</h4>
+          <h3>{price}</h3>
           <p>
-            {text}
+            {description}
           </p>
         </Modal.Body>
         <Modal.Footer>

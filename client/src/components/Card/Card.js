@@ -24,6 +24,7 @@ const Cards = ({ items }) => {
         handleModal();
         handleProductChange(event);
     }
+    
     // render products items
     const cardItems = items.map((item) => {
         return (
