@@ -7,8 +7,11 @@ import CancelIcon from '@material-ui/icons/Cancel';
 const MyRightSidebar = ({ visible, setVisible }) => {
     // const orderContext = useContext(OrderContext);
     // const newOrder = orderContext.orders;
+    
+    // get order data from localStorage
     const newOrder = JSON.parse(localStorage.getItem('orders'));
 
+    // render order items in sidebar
     const mapMenuItems = newOrder.orders.map((item, i) => {
                 return (
                 <Menu.Item key={i}>
