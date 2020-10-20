@@ -5,11 +5,11 @@ import Badge from '@material-ui/core/Badge';
 import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { Icon, Menu, Sidebar } from 'semantic-ui-react';
+import Sidebar from '../Sidebar/Sidebar.js';
 import './Navigation.css';
 
 const Navigation = ({ items }) => {
-    // visible variable for sidebar
+    // visible variable for Sidebar
     const [visible, setVisible] = React.useState(false);
 
     // sytle badbe for shopping cart icon
@@ -65,33 +65,11 @@ const Navigation = ({ items }) => {
                 </Container>
             </Navbar>
 
-            {/* sidebar component from Semantic ui */}
+            {/* Sidebar component */}
             <Sidebar
-                className='sidebar'
-                as={Menu}
-                animation='push'
-                icon='labeled'
-                inverted
-                onHide={() => setVisible(false)}
-                vertical
-                direction='right'
-                visible={visible}
-                width='wide'
-            >
-                {/* sidebar menu */}
-                <Menu.Item>
-                    <Icon name='cart' />
-                    Shopping Cart
-                </Menu.Item>
-                <Menu.Item as='a'>
-                    <Icon name='gamepad' />
-                    Games
-                </Menu.Item>
-                <Menu.Item as='a'>
-                    <Icon name='camera' />
-                    Channels
-                </Menu.Item>
-            </Sidebar>
+            visible={visible}
+            setVisible={setVisible} 
+            />
         </>
     )
 }

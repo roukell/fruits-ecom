@@ -1,0 +1,12 @@
+/* sidebar background color when visible */
+div.ui.inverted.vertical.labeled.icon.ui.push.right.wide.visible.sidebar.menu {
+    background-color: lightslategray;
+    z-index: 10000;
+  }
+
+  /* sidebar background color when not visible */
+div.ui.inverted.vertical.labeled.icon.ui.push.right.wide.sidebar.menu {
+    background-color: lightslategray;
+    z-index: 10000;
+  }
+  
