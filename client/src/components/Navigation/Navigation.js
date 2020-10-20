@@ -8,19 +8,19 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { Icon, Menu, Sidebar } from 'semantic-ui-react';
 import './Navigation.css';
 
-
-const StyledBadge = withStyles((theme) => ({
-    badge: {
-        right: -3,
-        top: 13,
-        border: `2px solid ${theme.palette.background.paper}`,
-        padding: '0 4px',
-    },
-}))(Badge);
-
 const Navigation = ({ items }) => {
     // visible variable for sidebar
     const [visible, setVisible] = React.useState(false);
+
+    // sytle badbe for shopping cart icon
+    const StyledBadge = withStyles((theme) => ({
+        badge: {
+            right: -3,
+            top: 13,
+            border: `2px solid ${theme.palette.background.paper}`,
+            padding: '0 4px',
+        },
+    }))(Badge);
 
     return (
         <>
