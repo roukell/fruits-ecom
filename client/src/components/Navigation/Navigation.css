@@ -16,4 +16,40 @@
   color: whitesmoke;
 }
 
+.mr-auto a {
+  color: rgb(100, 100, 100);
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.mr-auto a :hover {
+  color: black;
+}
+
+
+a.login.nav-link a{
+  color: rgb(100, 100, 100);
+  text-decoration: none;
+  font-size: 16px;
+}
+
+a.login.nav-link :hover {
+  color: black
+}
+
+.shoppingCart {
+  outline: none;
+}
+
+/* sidebar background color when visible */
+div.ui.inverted.vertical.labeled.icon.ui.push.right.wide.visible.sidebar.menu {
+  background-color: lightslategray;
+  z-index: 10000;
+}
+
+/* sidebar background color when not visible */
+div.ui.inverted.vertical.labeled.icon.ui.push.right.wide.sidebar.menu {
+  background-color: lightslategray;
+  z-index: 10000;
+}
 

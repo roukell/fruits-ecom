@@ -6,11 +6,11 @@ import {
   Route
 } from "react-router-dom";
 import Navigation from './components/Navigation/Navigation';
-import customerNavbarItems from '../src/pages/Data/customerNavbaritems';
-import Home from '../src/pages/Home.js';
+import customerNavbarItems from '../src/utils/Data/customerNavbaritems.js';
+import Home from '../src/pages/Home/Home.js';
 import About from './pages/About/About.js';
 import Preorder from './pages/Preorder/Preorder.js';
-import Contact from './pages/Contact';
+import Contact from './pages/Contact/Contact.js';
 import Footer from './components/Footer/Footer';
 
 function App() {

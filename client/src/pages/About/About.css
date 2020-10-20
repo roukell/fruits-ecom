@@ -11,3 +11,7 @@ h2, p {
     text-align: center;
     margin-left: 23%;
 }
+
+.aboutContainer {
+    height: 83vh;
+}

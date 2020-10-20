@@ -1,16 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import Badge from '@material-ui/core/Badge';
 import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { Link } from 'react-router-dom';
+import { Icon, Menu, Sidebar } from 'semantic-ui-react';
 import './Navigation.css';
-import {
-    Icon,
-    Menu,
-    Sidebar,
-  } from 'semantic-ui-react';
+
 
 const StyledBadge = withStyles((theme) => ({
     badge: {
@@ -22,69 +19,79 @@ const StyledBadge = withStyles((theme) => ({
 }))(Badge);
 
 const Navigation = ({ items }) => {
+    // visible variable for sidebar
     const [visible, setVisible] = React.useState(false);
-    console.log(visible);
 
     return (
         <>
-            <Navbar collapseOnSelect expand="lg" bg="light" sticky="top">
+            <Navbar collapseOnSelect expand='lg' bg='light' sticky='top'>
                 <Container>
+
+                    {/* site logo */}
                     <Navbar.Brand className='circle'>
                         <Link to='/' style={{ color: 'white', textDecoration: 'none' }}>
                             <p className='circle-content'>
-                            Pure
+                                Pure
                             <br />
-                            Fruit
+                                Fruit
                             </p>
                         </Link>
                     </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="mr-auto">
+
+                    {/* render navbar from navbar data */}
+                    <Navbar.Toggle aria-controls='responsive-navbar-nav' />
+                    <Navbar.Collapse id='responsive-navbar-nav'>
+                        <Nav className='mr-auto'>
                             {items.map(({ label, name, link }) => (
-                                <Nav.Link key={name} ><Link to={link} style={{ color: 'gray', textDecoration: 'none' }}>{label}</Link></Nav.Link>
+                                <Nav.Link key={name} ><Link to={link}>{label}</Link></Nav.Link>
                             ))}
                         </Nav>
-                        <Nav.Link style={{ color: 'gray', textDecoration: 'none' }}>
-                            Log In
+
+                        {/* login */}
+                        <Nav.Link className='login'>
+                            <Link to='/login'>Log In</Link>
                         </Nav.Link>
-                        <IconButton aria-label="cart" style={{ outline: 'none' }}>
-                            <StyledBadge badgeContent={0} color="secondary">
+
+                        {/* shopping cart icon */}
+                        <IconButton aria-label='cart' style={{ outline: 'none' }}>
+                            <StyledBadge badgeContent={0} color='secondary'>
                                 <ShoppingCartIcon
-                                label={{ children: <code>visible</code> }}
-                                onClick={() => setVisible(true)}
+                                    label={{ children: <code>visible</code> }}
+                                    onClick={() => setVisible(true)}
                                 />
                             </StyledBadge>
                         </IconButton>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-            
-          <Sidebar
-            style={{backgroundColor: '#f1bbe4', zIndex: '100000'}}
-            as={Menu}
-            animation='push'
-            icon='labeled'
-            inverted
-            onHide={() => setVisible(false)}
-            vertical
-            direction='right'
-            visible={visible}
-            width='wide'
-          >
-            <Menu.Item>
-              <Icon name='cart' />
-              Shopping Cart
-            </Menu.Item>
-            <Menu.Item as='a'>
-              <Icon name='gamepad' />
-              Games
-            </Menu.Item>
-            <Menu.Item as='a'>
-              <Icon name='camera' />
-              Channels
-            </Menu.Item>
-          </Sidebar>
+
+            {/* sidebar component from Semantic ui */}
+            <Sidebar
+                className='sidebar'
+                as={Menu}
+                animation='push'
+                icon='labeled'
+                inverted
+                onHide={() => setVisible(false)}
+                vertical
+                direction='right'
+                visible={visible}
+                width='wide'
+            >
+                {/* sidebar menu */}
+                <Menu.Item>
+                    <Icon name='cart' />
+                    Shopping Cart
+                </Menu.Item>
+                <Menu.Item as='a'>
+                    <Icon name='gamepad' />
+                    Games
+                </Menu.Item>
+                <Menu.Item as='a'>
+                    <Icon name='camera' />
+                    Channels
+                </Menu.Item>
+            </Sidebar>
         </>
     )
 }

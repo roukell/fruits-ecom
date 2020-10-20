@@ -5,7 +5,7 @@ import './About.css';
 const About = () => {
     return (
         <>
-            <Container>
+            <Container className='aboutContainer'>
                 <Row>
                     <Col md={{ span: 6, offset: 3 }}>
                         <Image src="image/kawaiiPeach.jpg" className='aboutImg'/>
