@@ -43,14 +43,14 @@ const Navigation = ({ items }) => {
                     <Navbar.Collapse id='responsive-navbar-nav'>
                         <Nav className='mr-auto'>
                             {items.map(({ label, name, link }) => (
-                                <Nav.Link key={name} ><Link to={link}>{label}</Link></Nav.Link>
+                                <Nav key={name} ><Link to={link}>{label}</Link></Nav>
                             ))}
                         </Nav>
 
                         {/* login */}
-                        <Nav.Link className='login'>
+                        <Nav className='login'>
                             <Link to='/login'>Log In</Link>
-                        </Nav.Link>
+                        </Nav>
 
                         {/* shopping cart icon */}
                         <IconButton aria-label='cart' style={{ outline: 'none' }}>

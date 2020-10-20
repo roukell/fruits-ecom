@@ -4,28 +4,48 @@ import './Card.css';
 import MyVerticallyCenteredModal from '../Modal/Modal.js';
 
 const Cards = ({ items }) => {
+    // modal variable
     const [modalShow, setModalShow] = useState(false);
+    const [modalProduct, setModalProduct] = useState();
 
-    const cardItems = items.map(({ title, text, price, image }) => {
+    // onClick function 1: setModalShow to true
+    const handleModal = () => {
+        setModalShow(true);
+    }
+
+    // onClick function 2: setModalProduct to current product
+    const handleProductChange = event => {
+        console.log(event.item);
+        setModalProduct(event.item);
+    }
+
+    // when onClick, call both functions
+    const clickFunctions = (event) => {
+        handleModal();
+        handleProductChange(event);
+    }
+    // render products items
+    const cardItems = items.map((item) => {
         return (
-            <Card style={{ width: '20rem' }} key={title}>
-                <Card.Img variant="top" src={'image/' + image} />
+            <Card style={{ width: '20rem' }} key={item.title}>
+                <Card.Img variant="top" src={'image/' + item.image} />
                 <Card.Body>
-                    <Card.Title>{title}</Card.Title>
+                    <Card.Title>{item.title}</Card.Title>
                     <Card.Text>
-                        {text}
-                        <hr />
-                        {price}
+                        {item.text}
+                        {item.price}
                     </Card.Text>
                     <Button
-                        variant="outline-danger"
-                        size="lg"
+                        variant='outline-danger'
+                        size='lg'
                         block
-                        onClick={() => setModalShow(true)}
+                        value={item}
+                        onClick={() => clickFunctions({item})}
                     >
                         Add to cart
                         </Button>
                     <MyVerticallyCenteredModal
+                        value={modalProduct}
                         show={modalShow}
                         onHide={() => setModalShow(false)}
                     />
@@ -37,7 +57,7 @@ const Cards = ({ items }) => {
     return (
         <>
             <Container>
-                <CardDeck className="justify-content-md-center">
+                <CardDeck className='justify-content-md-center'>
                     <Row xs={1} md={2} >
                         {cardItems}
                     </Row>
