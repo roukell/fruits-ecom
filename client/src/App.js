@@ -54,6 +54,10 @@ const App = () => {
     
         <Switch>
 
+        <Route path='/'>
+            <Home />
+          </Route>
+
         <Route path='/contact'>
             <Contact />
           </Route>
@@ -64,10 +68,6 @@ const App = () => {
 
           <Route path='/about'>
             <About />
-          </Route>
-
-          <Route path='/'>
-            <Home />
           </Route>
 
         </Switch>

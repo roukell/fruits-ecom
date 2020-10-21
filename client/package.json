@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001/",
   "dependencies": {
     "@bit/mui-org.material-ui.button": "^4.9.10",
     "@bit/primefaces.primereact.chart": "^4.2.0",
