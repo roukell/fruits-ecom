@@ -51,25 +51,11 @@ const App = () => {
     <Router>
       <div>
         <Navigation items={customerNavbarItems} />
-    
         <Switch>
-
-        <Route path='/'>
-            <Home />
-          </Route>
-
-        <Route path='/contact'>
-            <Contact />
-          </Route>
-
-        <Route path='/preorder'>
-            <Preorder />
-          </Route>
-
-          <Route path='/about'>
-            <About />
-          </Route>
-
+        <Route exact path='/' component={Home} />
+        <Route exact path='/about' component={About} />
+        <Route exact path='/preorder' component={Preorder} />
+        <Route exact path='/contact' component={Contact} />
         </Switch>
         <Footer />
       </div>
