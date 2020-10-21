@@ -43,7 +43,10 @@ const MyRightSidebar = ({ visible, setVisible }) => {
                 <div>
                     {mapMenuItems}
                 </div>
-        
+                <button
+                onClick={orderState.placeOrder}
+                >Place Order
+                </button>
             </Sidebar>
         </>
     )

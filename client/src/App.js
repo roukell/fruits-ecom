@@ -18,7 +18,8 @@ const App = () => {
   const [orderState, setOrderState] = useState({
     orders: []
   });
-
+  
+  // when componentDidMount, get orders from localStorage
   useEffect(() => {
     const ordersFromLocal = JSON.parse(localStorage.getItem('orders'));
     if (ordersFromLocal) {
@@ -36,13 +37,17 @@ const App = () => {
   const onDelete = i => {
     const copyState = [...orderState.orders];
     copyState.splice(i, 1);
-    console.log(copyState);
     setOrderState({orders: copyState});
     localStorage.setItem('orders', JSON.stringify({orders: copyState}));
   }
 
+  // need to use api to send order to backend
+  const placeOrder = () => {
+    console.log('send order to backend');
+  }
+
   return (
-    <OrderContext.Provider value={{orders: orderState.orders, onClick, onDelete}}>    
+    <OrderContext.Provider value={{orders: orderState.orders, onClick, onDelete, placeOrder}}>    
     <Router>
       <div>
         <Navigation items={customerNavbarItems} />

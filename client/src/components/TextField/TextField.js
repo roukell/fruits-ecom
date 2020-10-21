@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -18,9 +18,12 @@ const FormPropsTextFields = (props) => {
       <form className={classes.root} noValidate autoComplete='off'>
         <div>
           <TextField
+          // need to fix validation here
             id='standard-number'
             label='Quantity'
             type='number'
+            InputProps={{ inputProps: { min: 0, max: 15 } }}
+            pattern='[0-9]*'
             InputLabelProps={{
               shrink: true,
             }}
