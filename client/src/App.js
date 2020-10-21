@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -19,6 +19,13 @@ const App = () => {
     orders: []
   });
 
+  useEffect(() => {
+    const ordersFromLocal = JSON.parse(localStorage.getItem('orders'));
+    if (ordersFromLocal) {
+      setOrderState(ordersFromLocal);
+    }
+  }, []);
+
   // when Add to cart is clicked, then setOrderState to push new order to orders array
   const onClick = (title, quantity) => {
     const orders = [...orderState.orders, {title, quantity}];
@@ -26,8 +33,16 @@ const App = () => {
     setOrderState({...orderState, orders});
   }
 
+  const onDelete = i => {
+    const copyState = [...orderState.orders];
+    copyState.splice(i, 1);
+    console.log(copyState);
+    setOrderState({orders: copyState});
+    localStorage.setItem('orders', JSON.stringify({orders: copyState}));
+  }
+
   return (
-    <OrderContext.Provider value={{orders: orderState.orders, onClick}}>    
+    <OrderContext.Provider value={{orders: orderState.orders, onClick, onDelete}}>    
     <Router>
       <div>
         <Navigation items={customerNavbarItems} />

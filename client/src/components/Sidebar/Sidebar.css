@@ -11,6 +11,10 @@ div.ui.inverted.vertical.labeled.icon.ui.push.right.wide.sidebar.menu {
   }
 
 .cancelIcon {
-  padding: 10px
+  padding: 10px;
+}
+
+.cancelIcon :hover {
+  color: darkslategray;
 }
   
