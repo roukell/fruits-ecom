@@ -4,16 +4,18 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
+    "bcryptjs": "2.4.3",
     "bootstrap": "^4.5.2",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.10.9",
-    "bcryptjs": "2.4.3",
-    "express-session": "^1.16.1",
     "mysql2": "^1.6.5",
-    "passport": "^0.4.0",
+    "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "sequelize": "^5.8.6"
+    "passport-local-mongoose": "^6.0.1",
+    "sequelize": "^5.8.6",
+    "sequelize-cli": "^4.0.0"
   },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
