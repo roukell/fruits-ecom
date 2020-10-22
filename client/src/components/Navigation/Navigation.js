@@ -49,7 +49,7 @@ const Navigation = ({ items }) => {
 
                         {/* login */}
                         <Nav className='login'>
-                            <Link to='/login'>Log In</Link>
+                            <Link to='/signin'>Log In</Link>
                         </Nav>
 
                         {/* shopping cart icon */}

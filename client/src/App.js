@@ -11,6 +11,8 @@ import Home from '../src/pages/Home/Home.js';
 import About from './pages/About/About.js';
 import Preorder from './pages/Preorder/Preorder.js';
 import Contact from './pages/Contact/Contact.js';
+import SignIn from './pages/SignIn/SignIn.js';
+import SignUp from './pages/SignUp/SignUp.js';
 import Footer from './components/Footer/Footer';
 import OrderContext from './utils/Contexts/OrderContext.js';
 
@@ -56,6 +58,8 @@ const App = () => {
         <Route exact path='/about' component={About} />
         <Route exact path='/preorder' component={Preorder} />
         <Route exact path='/contact' component={Contact} />
+        <Route exact path='/signin' component={SignIn} />
+        <Route exact path='/signup' component={SignUp} />
         </Switch>
         <Footer />
       </div>
