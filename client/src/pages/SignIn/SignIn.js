@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState }from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -11,6 +11,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import API from '../../utils/API.js';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -35,6 +36,24 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignIn() {
   const classes = useStyles();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  
+  const handleUsernameChange = event => {
+    setUsername(event.target.value)
+  }
+
+  const handlePasswordChange = event => {
+    setPassword(event.target.value);
+  }
+
+  const signInCustomer = event => {
+    event.preventDefault();
+    API.logInCustomer({
+      username: username,
+      password: password
+    })
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -52,11 +71,12 @@ export default function SignIn() {
             margin="normal"
             required
             fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
+            id="Username"
+            label="Username"
+            name="Username"
+            autoComplete="Username"
             autoFocus
+            onChange={handleUsernameChange}
           />
           <TextField
             variant="outlined"
@@ -68,6 +88,7 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            onChange={handlePasswordChange}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -79,6 +100,7 @@ export default function SignIn() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={signInCustomer}
           >
             Sign In
           </Button>

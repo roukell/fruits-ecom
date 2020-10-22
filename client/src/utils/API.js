@@ -5,8 +5,8 @@ export default {
       return axios.post('/signup', signUpData);
     },
 
-    logInCustomer: function() {
-      return axios.post('/login')
+    logInCustomer: function(logInData) {
+      return axios.post('/login', logInData)
     },
 
     logOutCustomer: function() {
