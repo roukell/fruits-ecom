@@ -5,7 +5,6 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Navigation from './components/Navigation/Navigation';
 import customerNavbarItems from '../src/utils/Data/customerNavbaritems.js';
 import Home from '../src/pages/Home/Home.js';
 import About from './pages/About/About.js';
@@ -17,6 +16,7 @@ import Footer from './components/Footer/Footer';
 import OrderContext from './utils/Contexts/OrderContext.js';
 import UserContext from './utils/Contexts/UserContext.js';
 import API from './utils/API.js';
+import Navigation from './components/Navigation/Navigation';
 
 const App = () => {
   const [orderState, setOrderState] = useState({
@@ -33,9 +33,15 @@ const App = () => {
 
   // when Add to cart is clicked, then setOrderState to push new order to orders array
   const onClick = (title, quantity) => {
-    const orders = [...orderState.orders, { title, quantity }];
+    // console.log(Math.sign(quantity.quantity));
+    const testNegative = Math.sign(quantity.quantity);
+    if (quantity.quantity !== '0' && testNegative !== -1 ) {
+      const orders = [...orderState.orders, { title, quantity }];
     localStorage.setItem('orders', JSON.stringify({ ...orderState, orders }));
     setOrderState({ ...orderState, orders });
+    } else {
+      alert('Quantity cannot be 0 or nagative')
+    }
   }
 
   const onDelete = i => {
@@ -68,8 +74,8 @@ const App = () => {
 
   // need to use api to send order to backend
   const placeOrder = () => {
-    console.log('send order to backend');
-    console.log(orderState.orders.title);
+    // console.log('send order to backend');
+    // console.log(orderState.orders.title);
     // console.log(customerDetails['username']);
     if (customerDetails === undefined) {
       alert('please log in before placing an order');
