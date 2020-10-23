@@ -16,6 +16,7 @@ import SignUp from './pages/SignUp/SignUp.js';
 import Footer from './components/Footer/Footer';
 import OrderContext from './utils/Contexts/OrderContext.js';
 import UserContext from './utils/Contexts/UserContext.js';
+import API from './utils/API.js';
 
 const App = () => {
   const [orderState, setOrderState] = useState({
@@ -44,11 +45,6 @@ const App = () => {
     localStorage.setItem('orders', JSON.stringify({orders: copyState}));
   }
 
-  // need to use api to send order to backend
-  const placeOrder = () => {
-    console.log('send order to backend');
-  }
-
   const [customerDetails, setCustomerDetails] = useState();
 
   if (customerDetails) {
@@ -63,6 +59,25 @@ const App = () => {
       setCustomerDetails(userFromLocal);
     }
   }, []);
+
+  // use when order has been placed
+  const resetOrder = () => {
+    localStorage.removeItem('orders');
+    setOrderState({orders: []});
+  };
+
+   // need to use api to send order to backend
+   const placeOrder = () => {
+    console.log('send order to backend');
+    console.log(orderState.orders);
+    console.log(customerDetails['username']);
+    API.sendOrderToBackend({
+      orders: orderState.orders,
+      username: customerDetails['username']
+    })
+      resetOrder();
+      alert('Thank you for shopping with us');
+  };
 
   return (
     <UserContext.Provider value={[customerDetails, setCustomerDetails]}>

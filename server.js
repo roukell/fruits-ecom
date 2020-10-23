@@ -6,6 +6,7 @@ const passport = require('passport');
 const session = require('express-session');
 const LocalStrategy = require('passport-local').Strategy;
 const userRouter = require('./routes/user');
+const ordersRouter = require('./routes/orders');
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 3001;
@@ -32,6 +33,7 @@ passport.deserializeUser(User.deserializeUser());
 
 // Requiring our routes
 app.use(userRouter);
+app.use(ordersRouter);
 
 // Connect to the Mongo DB
 mongoose.connect(

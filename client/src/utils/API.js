@@ -27,5 +27,15 @@ export default {
       .catch(error => {
         console.log(error)
       })
+  },
+
+  sendOrderToBackend: function (orders) {
+    return axios.post('/sendorder', orders)
+      .catch(error => {
+        console.log(error);
+        if (error) {
+          return
+        }
+      })
   }
 };
