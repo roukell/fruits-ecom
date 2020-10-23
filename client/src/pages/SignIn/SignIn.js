@@ -57,6 +57,7 @@ const SignIn = props => {
     }).then(data => 
       setCustomerDetails(data.data)
       )
+      .catch(err => console.log(err))
   };
 
   return (
@@ -97,6 +98,7 @@ const SignIn = props => {
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
+            disabled checked
           />
           <Button
             type="submit"

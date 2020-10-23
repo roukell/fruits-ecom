@@ -2,7 +2,8 @@ import axios from "axios";
 
 export default {
   saveCustomerSignUpForm: function (signUpData) {
-    return axios.post('/signup', signUpData);
+    return axios.post('/signup', signUpData)
+      .then(data => window.location = '/signin');
   },
 
   logInCustomer: function (logInData) {
@@ -13,7 +14,8 @@ export default {
       .catch(error => {
         console.log(error);
         if (error) {
-          alert('Incorrect username or password')
+          alert('Incorrect username or password');
+          return;
         }
       });
   },
