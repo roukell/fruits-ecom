@@ -41,8 +41,13 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
         res.statusCode = 200;
         res.setHeader('Content-Type', 'application/json');
         res.json({
-            success: true,
-            status: 'You are successfully logged in!'
+            // success: true,
+            // status: 'You are successfully logged in!',
+
+            // send back customer details
+            firstName: person.firstName,
+            lastName: person.lastName,
+            email: person.email
         });
     })
 });

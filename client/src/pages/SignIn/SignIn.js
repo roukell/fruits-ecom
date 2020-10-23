@@ -1,4 +1,4 @@
-import React, { useState }from 'react';
+import React, { useState, useContext }from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import API from '../../utils/API.js';
+import UserContext from '../../utils/Contexts/UserContext.js';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -34,10 +35,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+const SignIn = props => {
   const classes = useStyles();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [customerDetails, setCustomerDetails] = useContext(UserContext);
   
   const handleUsernameChange = event => {
     setUsername(event.target.value)
@@ -45,15 +47,17 @@ export default function SignIn() {
 
   const handlePasswordChange = event => {
     setPassword(event.target.value);
-  }
+  };
 
   const signInCustomer = event => {
     event.preventDefault();
     API.logInCustomer({
       username: username,
       password: password
-    })
-  }
+    }).then(data => 
+      setCustomerDetails(data.data)
+      )
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -121,3 +125,5 @@ export default function SignIn() {
     </Container>
   );
 }
+
+export default SignIn;

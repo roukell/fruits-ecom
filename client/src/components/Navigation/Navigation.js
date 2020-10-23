@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container, Button } from 'react-bootstrap';
 import Badge from '@material-ui/core/Badge';
 import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Sidebar from '../Sidebar/Sidebar.js';
+import API from '../../utils/API.js';
+import UserContext from '../../utils/Contexts/UserContext.js';
 import './Navigation.css';
 
 const Navigation = ({ items }) => {
     // visible variable for Sidebar
     const [visible, setVisible] = React.useState(false);
+    // useContext to access customer details in localStorage
+    const [customerDetails, setCustomerDetails] =  useContext(UserContext);
 
     // sytle badbe for shopping cart icon
     const StyledBadge = withStyles((theme) => ({
@@ -21,6 +25,13 @@ const Navigation = ({ items }) => {
             padding: '0 4px',
         },
     }))(Badge);
+
+    const signOutCustomer = event => {
+        event.preventDefault();
+        console.log('logout clicked');
+        API.logOutCustomer()
+           .then(data => setCustomerDetails())
+    };
 
     return (
         <>
@@ -49,7 +60,7 @@ const Navigation = ({ items }) => {
 
                         {/* login */}
                         <Nav className='login'>
-                            <Link to='/signin'>Log In</Link>
+                            { customerDetails ? <Button onClick={signOutCustomer}>Log out</Button> : <Link to='/signin'>Log In</Link>}
                         </Nav>
 
                         {/* shopping cart icon */}

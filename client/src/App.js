@@ -15,6 +15,7 @@ import SignIn from './pages/SignIn/SignIn.js';
 import SignUp from './pages/SignUp/SignUp.js';
 import Footer from './components/Footer/Footer';
 import OrderContext from './utils/Contexts/OrderContext.js';
+import UserContext from './utils/Contexts/UserContext.js';
 
 const App = () => {
   const [orderState, setOrderState] = useState({
@@ -48,8 +49,29 @@ const App = () => {
     console.log('send order to backend');
   }
 
+  // UserContext
+  const [customerDetails, setCustomerDetails] = useState();
+
+  console.log(customerDetails);
+
+  if (customerDetails) {
+    console.log('logged in');
+    localStorage.setItem('user', JSON.stringify(customerDetails));
+  } else {
+    console.log('logged out');
+  }
+
+  // when componentDidMount, get user from localStorage
+  useEffect(() => {
+    const userFromLocal = JSON.parse(localStorage.getItem('user'));
+    if (userFromLocal) {
+      setCustomerDetails(userFromLocal);
+    }
+  }, []);
+
   return (
-    <OrderContext.Provider value={{orders: orderState.orders, onClick, onDelete, placeOrder}}>    
+    <UserContext.Provider value={[customerDetails, setCustomerDetails]}>
+    <OrderContext.Provider value={{orders: orderState.orders, onClick, onDelete, placeOrder}}>  
     <Router>
       <div>
         <Navigation items={customerNavbarItems} />
@@ -65,6 +87,7 @@ const App = () => {
       </div>
     </Router>
     </OrderContext.Provider>
+    </UserContext.Provider>
   );
 }
 
