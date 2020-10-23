@@ -9,6 +9,7 @@ export default {
   logInCustomer: function (logInData) {
     return axios.post('/login', logInData)
       .then(data => {
+        window.location = '/';
         return data;
       })
       .catch(error => {

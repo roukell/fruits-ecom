@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 import Badge from '@material-ui/core/Badge';
 import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
@@ -28,7 +28,6 @@ const Navigation = ({ items }) => {
 
     const signOutCustomer = event => {
         event.preventDefault();
-        console.log('logout clicked');
         API.logOutCustomer()
            .then(data => setCustomerDetails())
     };
@@ -57,10 +56,13 @@ const Navigation = ({ items }) => {
                                 <Nav key={i} ><Link to={link}>{label}</Link></Nav>
                             ))}
                         </Nav>
+                        <Nav>
+                            { customerDetails ? <Nav.Item>Welcome {customerDetails['firstName']}</Nav.Item> : <Nav.Item></Nav.Item>}
+                        </Nav>
 
                         {/* login */}
                         <Nav className='login'>
-                            { customerDetails ? <Button onClick={signOutCustomer}>Log out</Button> : <Link to='/signin'>Log In</Link>}
+                            { customerDetails ? <Nav.Link onClick={signOutCustomer}>Log out</Nav.Link> : <Link to='/signin'>Log In</Link>}
                         </Nav>
 
                         {/* shopping cart icon */}

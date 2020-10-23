@@ -47,7 +47,8 @@ router.post('/login', passport.authenticate('local'), (req, res) => {
             // send back customer details
             firstName: person.firstName,
             lastName: person.lastName,
-            email: person.email
+            email: person.email,
+            username: person.username
         });
     })
 });

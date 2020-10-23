@@ -49,17 +49,12 @@ const App = () => {
     console.log('send order to backend');
   }
 
-  // UserContext
   const [customerDetails, setCustomerDetails] = useState();
 
-  console.log(customerDetails);
-
   if (customerDetails) {
-    console.log('logged in');
-    localStorage.setItem('user', JSON.stringify(customerDetails));
-  } else {
-    console.log('logged out');
-  }
+    const customerDetailsCopy = customerDetails
+    localStorage.setItem('user', JSON.stringify(customerDetailsCopy));
+  } 
 
   // when componentDidMount, get user from localStorage
   useEffect(() => {
