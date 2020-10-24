@@ -5,18 +5,16 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import customerNavbarItems from '../src/utils/Data/customerNavbaritems.js';
 import Home from '../src/pages/Home/Home.js';
 import About from './pages/About/About.js';
 import Preorder from './pages/Preorder/Preorder.js';
 import Contact from './pages/Contact/Contact.js';
 import SignIn from './pages/SignIn/SignIn.js';
 import SignUp from './pages/SignUp/SignUp.js';
-import Footer from './components/Footer/Footer';
 import OrderContext from './utils/Contexts/OrderContext.js';
 import UserContext from './utils/Contexts/UserContext.js';
 import API from './utils/API.js';
-import Navigation from './components/Navigation/Navigation';
+import Admin from './pages/Admin/Admin.js';
 
 const App = () => {
   const [orderState, setOrderState] = useState({
@@ -95,7 +93,6 @@ const App = () => {
       <OrderContext.Provider value={{ orders: orderState.orders, onClick, onDelete, placeOrder }}>
         <Router>
           <div>
-            <Navigation items={customerNavbarItems} />
             <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/about' component={About} />
@@ -103,8 +100,8 @@ const App = () => {
               <Route exact path='/contact' component={Contact} />
               <Route exact path='/signin' component={SignIn} />
               <Route exact path='/signup' component={SignUp} />
+              <Route exact path='/admin' component={Admin} />
             </Switch>
-            <Footer />
           </div>
         </Router>
       </OrderContext.Provider>

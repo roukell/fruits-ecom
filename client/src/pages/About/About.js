@@ -1,10 +1,14 @@
 import React from 'react';
 import { Container, Col, Image, Row } from 'react-bootstrap';
 import './About.css';
+import Navigation from '../../components/Navigation/Navigation.js';
+import Footer from '../../components/Footer/Footer.js';
+import customerNavbarItems from '../../utils/Data/customerNavbaritems.js';
 
 const About = () => {
     return (
         <>
+         <Navigation items={customerNavbarItems} />  
             <Container className='aboutContainer'>
                 <Row>
                     <Col md={{ span: 6, offset: 3 }}>
@@ -26,6 +30,7 @@ const About = () => {
                     </Col>
                 </Row>
             </Container>
+            <Footer />
         </>
     )
 }

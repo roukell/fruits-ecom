@@ -9,8 +9,14 @@ export default {
   logInCustomer: function (logInData) {
     return axios.post('/login', logInData)
       .then(data => {
-        window.location = '/';
-        return data;
+        console.log(data.data.username)
+        if (data.data.username === 'admin') {
+          window.location = '/admin';
+        } else {
+          window.location = '/';
+          return data;
+        }
+       
       })
       .catch(error => {
         console.log(error);
@@ -37,5 +43,9 @@ export default {
           return
         }
       })
+  },
+
+  getCustomerDetails: function() {
+    return axios.get('/api/getCustomerDetails')
   }
 };
