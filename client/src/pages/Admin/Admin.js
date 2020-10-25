@@ -28,10 +28,11 @@ const Administration = () => {
             <Navbar bg="primary" variant="dark">
                 <Navbar.Brand>Admin</Navbar.Brand>
                 <Navbar.Collapse id="basic-navbar-nav">
-                    {/* <Nav className="mr-auto">
+                    <Nav className="mr-auto">
                         <Nav.Link href="#">Customer details</Nav.Link>
                         <Nav.Link href="#">Orders</Nav.Link>
-                    </Nav> */}
+                        {/* <Nav.Link href="#">Fruit Season Reminder</Nav.Link> */}
+                    </Nav>
                 </Navbar.Collapse>
                 <Form inline>
                     <Button
@@ -39,9 +40,10 @@ const Administration = () => {
                     >Log out</Button>
                 </Form>
             </Navbar>
-            <h2>Customer details</h2>
+            {/* render customer table if customers is true */}
             {customers ? <CustomerTable customers={customers} /> : <p>rendering...</p>}
-            <h2>Orders</h2>
+            
+            {/* render order table if orders is true */}
             {orders ? <OrderTable orders={orders} /> : <p>rendering...</p>}
         </>
     )

@@ -5,6 +5,8 @@ const OrderTable = (props) => {
   console.log(props);
 
   return (
+    <>
+    <h2>Orders</h2>
     <Table striped bordered hover >
       <thead>
         <tr>
@@ -47,8 +49,8 @@ const OrderTable = (props) => {
         })}
       </tbody>
     </Table>
+    </>
   )
-
 }
 
 export default OrderTable;
