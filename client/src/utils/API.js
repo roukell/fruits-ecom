@@ -29,7 +29,11 @@ export default {
 
   logOutCustomer: function () {
     return axios.get('/logout ')
-      .then(localStorage.removeItem('user'))
+      .then( data => {
+        localStorage.removeItem('user');
+        window.location = '/';
+      }
+        )
       .catch(error => {
         console.log(error)
       })
@@ -45,7 +49,11 @@ export default {
       })
   },
 
-  getCustomerDetails: function() {
+  getCustomerDetails: function(req, res) {
     return axios.get('/api/getCustomerDetails')
+  },
+
+  getOrders: function () {
+    return axios.get('/api/getOrders')
   }
 };

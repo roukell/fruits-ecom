@@ -13,4 +13,10 @@ router.post('/sendorder', (req, res) => {
     })
 })
 
+router.get('/api/getOrders', (req, res) => {
+    Orders.find({})
+    .then(data => res.json(data))
+    .catch(err => res.status(422).json(err))
+})
+
 module.exports = router;
