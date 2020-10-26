@@ -2,32 +2,30 @@ import React, { useEffect, useState } from 'react';
 import authProvider from './authProvider';
 import { Admin, Resource, ListGuesser } from 'react-admin';
 import fakeDataProvider from 'ra-data-fakerest';
-// import customer array
-import customers from './customersDetails';
-// import orders array
-import orders from './ordersDetails';
 import API from '../../utils/API';
+import OrderList from './OrderList';
+import CustomerList from './CustomerList';
 
 const AdminRA = () => {
-    const [APIcustomers, setAPIcustomers] = useState([]);
-    const [APIorders, setAPIorders] = useState([]);
+    const [customers, setCustomers] = useState([]);
+    const [orders, setOrders] = useState([]);
 
     // get customers details from API
-    async function getAPIcustomers() {
+    async function getCustomers() {
         const getAPIcus = await API.getCustomerDetails();
-        setAPIcustomers(getAPIcus.data);
-        console.log(APIcustomers);
+        setCustomers(getAPIcus.data);
+        console.log(customers);
     }
 
     useEffect(() => {
-        getAPIcustomers();
+        getCustomers();
     }, [])
 
     // get order details from API
     async function getOrders() {
         const getAPIord = await API.getOrders();
-        setAPIorders(getAPIord.data);
-        console.log(APIorders)
+        setOrders(getAPIord.data);
+        console.log(orders)
     }
 
     useEffect(() => {
@@ -36,17 +34,13 @@ const AdminRA = () => {
 
     const dataProvider = fakeDataProvider({
         customers,
-        orders,
-        APIcustomers,
-        APIorders
+        orders
     })
 
     return (
          <Admin dataProvider={dataProvider} authProvider={authProvider}>
-        <Resource name="customers" list={ListGuesser} />
-        <Resource name="orders" list={ListGuesser} />
-        <Resource name="APIcustomers" list={ListGuesser} />
-        <Resource name="APIorders" list={ListGuesser} />
+        <Resource name="customers" list={CustomerList} />
+        <Resource name="orders" list={OrderList} />
     </Admin>
     )
 };

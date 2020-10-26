@@ -14,7 +14,7 @@ import SignUp from './pages/SignUp/SignUp.js';
 import OrderContext from './utils/Contexts/OrderContext.js';
 import UserContext from './utils/Contexts/UserContext.js';
 import API from './utils/API.js';
-import Admin from './pages/Admin/Admin.js';
+// import Admin from './pages/Admin/Admin-backupVersion.js';
 import AdminRA from './pages/Admin/Admin-ra.js';
 
 const App = () => {
@@ -101,7 +101,7 @@ const App = () => {
               <Route exact path='/contact' component={Contact} />
               <Route exact path='/signin' component={SignIn} />
               <Route exact path='/signup' component={SignUp} />
-              <Route exact path='/admin' component={Admin} />
+              {/* <Route exact path='/admin' component={Admin} /> */}
               <Route exact path='/adminra' component={AdminRA} />
             </Switch>
           </div>
