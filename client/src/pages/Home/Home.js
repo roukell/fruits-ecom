@@ -1,11 +1,11 @@
 import React from 'react';
-import Carousel from '../../components/Carousel/Carousel';
 import Card from '../../components/Card/Card';
 import Alert from '../../components/Alert/Alert';
 import productsData from '../../utils/Data/products.js';
 import Navigation from '../../components/Navigation/Navigation.js';
 import Footer from '../../components/Footer/Footer.js';
 import customerNavbarItems from '../../utils/Data/customerNavbaritems.js';
+import Carousel from '../../components/Carousel/Carousel';
 
 const Home = () => {
     return(

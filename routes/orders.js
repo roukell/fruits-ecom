@@ -2,6 +2,7 @@ const Orders = require('../models/orders');
 const router = require("express").Router();
 
 router.post('/sendorder', (req, res) => {
+    console.log(JSON.stringify(req.body));
     Orders.create({
         username: req.body.username,
         orders: req.body.orders

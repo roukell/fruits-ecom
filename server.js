@@ -15,8 +15,8 @@ const User = require('./models/user.js');
 // Creating express app and configuring middleware needed for authentication
 const app = express();
 // allow CORS
-// const cors = require('cors');
-// app.use(cors());
+const cors = require('cors');
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

@@ -27,7 +27,7 @@ const OrderTable = props => {
                 {order.orders.map((item, i) => {
                   return (
                     <div key={i}>
-                      {item.title.title}
+                      {item.title}
                     </div>
                   )
                 })}
@@ -36,7 +36,7 @@ const OrderTable = props => {
                 {order.orders.map((item, i) => {
                   return (
                     <div key={i}>
-                      {item.quantity.quantity}
+                      {item.quantity}
                     </div>
                   )
                 })}

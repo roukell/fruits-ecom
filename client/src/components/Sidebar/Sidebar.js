@@ -10,7 +10,7 @@ const MyRightSidebar = ({ visible, setVisible }) => {
     const mapMenuItems = orderState.orders.map((item, i) => {
         return (
             <Menu.Item key={i}>
-                {item.title.title} x {item.quantity.quantity}
+                {item.title} x {item.quantity}
                 <span className='cancelIcon'>
                     <CancelIcon
                         onClick={() => orderState.onDelete(i)}

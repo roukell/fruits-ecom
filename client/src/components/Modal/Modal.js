@@ -46,7 +46,7 @@ function MyVerticallyCenteredModal(props) {
               <TextField onChange={countQuantity} />
             </Col>
             <Col sm={4}>
-              <Button size='lg' variant='light' onClick={() => updateOrder.onClick({ title }, { quantity })} >
+              <Button size='lg' variant='light' onClick={() => updateOrder.onClick(title, quantity)} >
                 Add to cart
           </Button>
             </Col>
