@@ -16,8 +16,8 @@ const CustomerTable = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.customers.map((customer, index) => {
-            if (index !== 0)
+          {props.customers.map(customer => {
+            if (customer.username !== 'admin')
               return (
                 <tr key={customer._id}>
                   <td>{customer._id}</td>
