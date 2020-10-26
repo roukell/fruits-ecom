@@ -1,9 +1,7 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 
-const OrderTable = (props) => {
-  console.log(props);
-
+const OrderTable = props => {
   return (
     <>
     <h2>Orders</h2>

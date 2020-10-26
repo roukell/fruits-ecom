@@ -7,6 +7,8 @@ import AdminNav from '../../components/Navigation/AdminNav.js';
 const Administration = () => {
     const [customers, setCustomers] = useState();
     const [orders, setOrders] = useState();
+    console.log(customers);
+    console.log(orders);
 
     useEffect(() => {
         API.getCustomerDetails()
