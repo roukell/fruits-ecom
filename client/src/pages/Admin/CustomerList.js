@@ -1,8 +1,15 @@
 import React from 'react';
-import { List, Datagrid, ReferenceField, TextField, EmailField, NumberField } from 'react-admin';
+import { List, Datagrid, TextField, EmailField, Filter, TextInput } from 'react-admin';
 
-const CustomerList = props => (
-    <List {...props}>
+const CustomerList = props => {
+    const PostFilter = (props) => (
+        <Filter {...props}>
+            <TextInput label="Search" source="q" alwaysOn />
+        </Filter>
+    );
+
+    return(
+      <List {...props} filters={<PostFilter />}>
         <Datagrid rowClick="edit">
         <TextField source="_id" />
             <TextField source="username" />
@@ -10,7 +17,8 @@ const CustomerList = props => (
             <TextField source="lastName" />
             <EmailField source="email" />         
         </Datagrid>
-    </List>
-);
+    </List>  
+    )
+};
 
 export default CustomerList;

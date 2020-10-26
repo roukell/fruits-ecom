@@ -10,12 +10,7 @@ export default {
     return axios.post('/login', logInData)
       .then(data => {
         console.log(data.data.username)
-        // if (data.data.username === 'admin') {
-        //   window.location = '/admin';
-        // } else {
-          window.location = '/';
-          return data;
-        // }
+        window.location = '/';
       })
       .catch(error => {
         console.log(error);
