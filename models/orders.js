@@ -8,7 +8,8 @@ const ordersSchema = new mongoose.Schema({
   orders: {
     type: Array,
     required: true
-  }
+  },
+  date: Date
 });
 
 const Orders = mongoose.model('Orders', ordersSchema);

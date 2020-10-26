@@ -5,7 +5,8 @@ router.post('/sendorder', (req, res) => {
     console.log(JSON.stringify(req.body));
     Orders.create({
         username: req.body.username,
-        orders: req.body.orders
+        orders: req.body.orders,
+        date: Date()
     }).then(data => {
         console.log('created new order')
     })
