@@ -5,7 +5,7 @@ import DataProvider from 'ra-data-fakerest';
 import API from '../../utils/API';
 import OrderList from './OrderList';
 import CustomerList from './CustomerList';
-// import OrderShow from './singleOrder';
+import Dashboard from './Dashboard';
 
 const AdminRA = () => {
     const [customers, setCustomers] = useState([]);
@@ -35,7 +35,7 @@ const AdminRA = () => {
     })
 
     return (
-        <Admin dataProvider={dataProvider} authProvider={authProvider}>
+        <Admin dashboard={Dashboard} dataProvider={dataProvider} authProvider={authProvider}>
             <Resource name="customers" list={CustomerList} />
             <Resource name="orders" list={OrderList} show={ShowGuesser}/>
         </Admin>
