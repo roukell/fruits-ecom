@@ -30,13 +30,12 @@ const AdminRA = () => {
     }, [])
 
     const dataProvider = DataProvider({
-        customers,
-        orders
+        customers: customers,
+        orders: orders
     })
 
     return (
-        // <Admin dashboard={Dashboard} dataProvider={dataProvider} authProvider={authProvider}>
-        <Admin dashboard={Dashboard} dataProvider={dataProvider} >
+        <Admin dashboard={Dashboard} dataProvider={dataProvider} authProvider={authProvider}>
             <Resource name="customers" list={CustomerList} />
             <Resource name="orders" list={OrderList} show={ShowGuesser} />
         </Admin>
