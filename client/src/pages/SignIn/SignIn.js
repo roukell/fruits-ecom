@@ -116,9 +116,15 @@ const SignIn = props => {
                 Forgot password?
               </Link>
             </Grid> */}
-            <Grid item>
+            <Grid item xs>
               <Link to='/signup' variant="body2">
                 {"Don't have an account? Sign Up"}
+              </Link>
+            </Grid>
+            <br/>
+            <Grid item>
+              <Link to='/admin' variant="body2">
+                {"Sign in as Admin"}
               </Link>
             </Grid>
           </Grid>
