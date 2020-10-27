@@ -7,10 +7,12 @@ const session = require('express-session');
 const LocalStrategy = require('passport-local').Strategy;
 const userRouter = require('./routes/user');
 const ordersRouter = require('./routes/orders');
+const adminRouter = require('./routes/admin');
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 3001;
 const User = require('./models/user.js');
+const Admin = require('./models/admin.js');
 
 // Creating express app and configuring middleware needed for authentication
 const app = express();
@@ -30,12 +32,19 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(new LocalStrategy(User.authenticate()));
+// local strategy for User
+passport.use('user-local', new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// local strategy for Admin
+passport.use('admin-local', new LocalStrategy(Admin.authenticate()));
+passport.serializeUser(Admin.serializeUser());
+passport.deserializeUser(Admin.deserializeUser());
+
 // Requiring our routes
 app.use(userRouter);
+app.use(adminRouter);
 app.use(ordersRouter);
 
 // Connect to the Mongo DB

@@ -101,8 +101,7 @@ const App = () => {
               <Route exact path='/contact' component={Contact} />
               <Route exact path='/signin' component={SignIn} />
               <Route exact path='/signup' component={SignUp} />
-              {/* <Route exact path='/admin' component={Admin} /> */}
-              <Route exact path='/adminra' component={AdminRA} />
+              <Route exact path='/admin' component={AdminRA} />
             </Switch>
           </div>
         </Router>

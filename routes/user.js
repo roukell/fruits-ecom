@@ -18,7 +18,7 @@ router.post('/signup', (req, res, next) => {
                     err: err
                 });
             } else {
-                passport.authenticate('local')(req, res, () => {
+                passport.authenticate('user-local')(req, res, () => {
                     User.findOne({
                         username: req.body.username
                     }, (err, person) => {
@@ -34,7 +34,7 @@ router.post('/signup', (req, res, next) => {
         })
 });
 
-router.post('/login', passport.authenticate('local'), (req, res) => {
+router.post('/login', passport.authenticate('user-local'), (req, res) => {
     User.findOne({
         username: req.body.username
     }, (err, person) => {
