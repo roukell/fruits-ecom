@@ -26,7 +26,8 @@
     "react-sidebar": "^3.0.2",
     "react-ticker": "^1.2.2",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^2.0.0"
+    "semantic-ui-react": "^2.0.0",
+    "react-admin": "^3.9.5"
   },
   "scripts": {
     "start": "react-scripts start",
