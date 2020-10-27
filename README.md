@@ -59,7 +59,7 @@
   * MIT
 
   ## Contributing
-  This app is contributed by Melody Lo and Trilogy Education Services.
+  This app is contributed by Melody Lo.
 
 
   ## Questions
