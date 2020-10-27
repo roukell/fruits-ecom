@@ -49,7 +49,7 @@
   "devDependencies": {
     "@craco/craco": "^5.7.0",
     "@semantic-ui-react/craco-less": "^1.2.1",
-    "react-admin": "^3.9.4",
+    "react-admin": "^3.9.5",
     "semantic-ui-less": "^2.4.1"
   }
 }
