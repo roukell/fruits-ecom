@@ -1,4 +1,4 @@
-  # Google Books Search
+  # Pure Fruit: E-commerce Website
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
   ## Preview
