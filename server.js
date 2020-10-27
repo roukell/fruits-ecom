@@ -8,6 +8,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const userRouter = require('./routes/user');
 const ordersRouter = require('./routes/orders');
 const adminRouter = require('./routes/admin');
+const path = require('path'); 
 
 // Setting up port and requiring models for syncing
 const PORT = process.env.PORT || 3001;
