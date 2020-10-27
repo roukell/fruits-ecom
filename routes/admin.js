@@ -21,7 +21,7 @@ router.post('/admin/login', passport.authenticate('admin-local'), (req, res) => 
     })
 });
 
-router.get('/adminLogout', (req, res, next) => {
+router.get('/admin/logout', (req, res, next) => {
     if (req.session) {
         req.logout();
         req.session.destroy((err) => {
@@ -41,33 +41,33 @@ router.get('/adminLogout', (req, res, next) => {
     }
 });
 
-router.post('/signup', (req, res, next) => {
-    Admin.register(new Admin({
-        username: req.body.username
-    }),
-        req.body.password, (err, user) => {
-            if (err) {
-                console.log(err);
-                res.statusCode = 500;
-                res.setHeader('Content-Type', 'application/json');
-                res.json({
-                    err: err
-                });
-            } else {
-                passport.authenticate('local')(req, res, () => {
-                    Admin.findOne({
-                        username: req.body.username
-                    }, (err, person) => {
-                        res.statusCode = 200;
-                        res.setHeader('Content-Type', 'application/json');
-                        res.json({
-                            success: true,
-                            status: 'Registration Successful!',
-                        });
-                    });
-                })
-            }
-        })
-});
+// router.post('/signup', (req, res, next) => {
+//     Admin.register(new Admin({
+//         username: req.body.username
+//     }),
+//         req.body.password, (err, user) => {
+//             if (err) {
+//                 console.log(err);
+//                 res.statusCode = 500;
+//                 res.setHeader('Content-Type', 'application/json');
+//                 res.json({
+//                     err: err
+//                 });
+//             } else {
+//                 passport.authenticate('local')(req, res, () => {
+//                     Admin.findOne({
+//                         username: req.body.username
+//                     }, (err, person) => {
+//                         res.statusCode = 200;
+//                         res.setHeader('Content-Type', 'application/json');
+//                         res.json({
+//                             success: true,
+//                             status: 'Registration Successful!',
+//                         });
+//                     });
+//                 })
+//             }
+//         })
+// });
 
 module.exports = router;
