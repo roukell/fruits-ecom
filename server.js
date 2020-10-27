@@ -17,10 +17,14 @@ const Admin = require('./models/admin.js');
 // Creating express app and configuring middleware needed for authentication
 const app = express();
 // allow CORS
-const cors = require('cors');
-app.use(cors());
+// const cors = require('cors');
+// app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 // We need to use sessions to keep track of our user's login status
 app.use(session({

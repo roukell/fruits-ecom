@@ -46,11 +46,6 @@
       "last 1 safari version"
     ]
   },
-  "bit": {
-    "env": {},
-    "componentsDefaultDirectory": "components/{name}",
-    "packageManager": "npm"
-  },
   "devDependencies": {
     "@craco/craco": "^5.7.0",
     "@semantic-ui-react/craco-less": "^1.2.1",
