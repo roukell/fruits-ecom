@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import authProvider from './authProvider';
-import { Admin, Resource, ShowGuesser} from 'react-admin';
+import { Admin, Resource, ShowGuesser } from 'react-admin';
 import DataProvider from 'ra-data-fakerest';
 import API from '../../utils/API';
 import OrderList from './OrderList';
@@ -35,9 +35,10 @@ const AdminRA = () => {
     })
 
     return (
-        <Admin dashboard={Dashboard} dataProvider={dataProvider} authProvider={authProvider}>
+        // <Admin dashboard={Dashboard} dataProvider={dataProvider} authProvider={authProvider}>
+        <Admin dashboard={Dashboard} dataProvider={dataProvider} >
             <Resource name="customers" list={CustomerList} />
-            <Resource name="orders" list={OrderList} show={ShowGuesser}/>
+            <Resource name="orders" list={OrderList} show={ShowGuesser} />
         </Admin>
     )
 };
