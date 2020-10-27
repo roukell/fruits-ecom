@@ -12,8 +12,8 @@ const Preorder = () => {
         <>   
         <Navigation items={customerNavbarItems} /> 
         <Container className='preorderContainer'>
-            <h3>
-                Pre-Order Products
+            <h3 className='productHeader'>
+                PRE-ORDER PRODUCTS
             </h3>
             <Card items={productsData} /> 
         </Container>

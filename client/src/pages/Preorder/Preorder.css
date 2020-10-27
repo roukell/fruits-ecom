@@ -1,3 +1,8 @@
 .preorderContainer {
     height: 83vh;
 }
+
+.productHeader {
+    padding: 3%;
+    font-size: 22px;
+}

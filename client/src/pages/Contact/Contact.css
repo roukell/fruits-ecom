@@ -1,3 +1,7 @@
 .contactContainer {
-    height: 83vh;
+    height: 72vh;
+}
+
+.contactRow {
+    margin-top: 10%;
 }
