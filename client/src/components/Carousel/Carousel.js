@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Carousel, Container } from 'react-bootstrap';
-import Button from '@bit/mui-org.material-ui.button';
+import { Carousel, Container, Button } from 'react-bootstrap';
 import './Carousel.css';
 import { Link } from 'react-router-dom';
 
@@ -23,9 +22,9 @@ function ControlledCarousel() {
           />
           <Carousel.Caption>
            <h3>Okayama White Peach</h3>
-            <Button variant="contained" color="primary">
+            <Button variant="primary">
             <Link to='/preorder' style={{color: 'white', textDecoration: 'none'}}>
-                Pre-order
+                PRE ORDER
               </Link>
             </Button>
           </Carousel.Caption>
@@ -38,9 +37,9 @@ function ControlledCarousel() {
           />
           <Carousel.Caption>
            <h3>Pearl White Strawberry</h3>
-            <Button variant="contained" color="primary">
+            <Button variant="primary">
               <Link to='/preorder' style={{color: 'white', textDecoration: 'none'}}>
-                Pre-order
+                PRE ORDER
               </Link>
             </Button>
           </Carousel.Caption>
