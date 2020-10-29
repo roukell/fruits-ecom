@@ -9,12 +9,13 @@
   ![img](./image/preview1.png)
 
   ## Description
-  ![img](./image/mern.jpeg)
-  * Pure Fruit provides customers a website for product references and order placement. It also has an admin platform which allows business owners to handle orders and customer information seamlessly.  
+  ![img](./image/mern.jpeg)  
+    
+  Pure Fruit provides customers a website for product references and order placement. It also has an admin platform which allows business owners to handle orders and customer information seamlessly.  
   
   Pure Fruit is inspired by my family’s importing fruit business. Instead of running business on social media groups and handling orders manually, this website is sure to be a time saver once it’s launched! 
 
-  User story  
+  ## User story  
   AS A small business owner  
   I WANT TO easily access details of customers information and their orders  
   SO THAT I can save time on handling orders manually on social media pages  
@@ -56,8 +57,6 @@
     
   2. AS A BUSINESS OWNER
      You can login as Admin (username: admin, password:admin), view and export customer details, view and export order details (in .csv format).
-
-  Enjoy!
 
   ## License
   * MIT
