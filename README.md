@@ -12,27 +12,28 @@
   ![img](./image/mern.jpeg)
   * Pure Fruit provides customers a website for product references and order placement. It also has an admin platform which allows business owners to handle orders and customer information seamlessly.  
   
-    Pure Fruit is inspired by my family’s importing fruit business. Instead of running business on social media groups and handling orders manually, this website is sure to be a time saver once it’s launched! 
+  Pure Fruit is inspired by my family’s importing fruit business. Instead of running business on social media groups and handling orders manually, this website is sure to be a time saver once it’s launched! 
 
-  * User story  
-    AS A small business owner  
-    I WANT TO easily access details of customers information and their orders  
-    SO THAT I can save time on handling orders manually on social media pages  
+  User story  
+  AS A small business owner  
+  I WANT TO easily access details of customers information and their orders  
+  SO THAT I can save time on handling orders manually on social media pages  
 
-  * As A customer  
-    I WANT TO view and pre-order products  
-    AND Know how to contact business owner if any issues  
+  As A customer   
+  I WANT TO view and pre-order products  
+  AND Know how to contact business owner if any issues  
 
-  * Deployed application: https://nameless-oasis-57757.herokuapp.com/  
-    To login as admin on the demo website  
-    username: admin  
-    password: admin
+  ## Deployed application
+  https://nameless-oasis-57757.herokuapp.com/  
 
-  * Technologies used:   
-    Node.js, Express, MongoDB, Mongoose,React, Heroku, Passport local Mongoose, axios, React router DOM, React Ticker, JSON web token (JWT), Express-session, etc.
+  To login as admin on the demo website  
+  username: admin  
+  password: admin
 
-  * Framework:  
-    Bootstrap, Material UI, Semantic UI, React Admin
+  ## Technologies used  
+  Node.js, Express, MongoDB, Mongoose,React, Heroku, Passport local Mongoose, axios, React router DOM, React Ticker, JSON web token (JWT), Express-session  
+
+  Framework: Bootstrap, Material UI, Semantic UI, React Admin
 
 
   ## Table of Contents
