@@ -12,6 +12,9 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import API from '../../utils/API.js';
+import Navigation from '../../components/Navigation/Navigation.js';
+import Footer from '../../components/Footer/Footer.js';
+import customerNavbarItems from '../../utils/Data/customerNavbaritems.js';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -75,6 +78,8 @@ export default function SignUp() {
   };
 
   return (
+    <>   
+    <Navigation items={customerNavbarItems} /> 
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -169,5 +174,7 @@ export default function SignUp() {
         </form>
       </div>
     </Container>
+    <Footer />
+    </>
   );
 }
