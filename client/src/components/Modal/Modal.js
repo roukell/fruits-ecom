@@ -9,6 +9,7 @@ function MyVerticallyCenteredModal(props) {
   const title = props.value.title;
   // const text = props.value.text;
   const price = props.value.price;
+  const unit = props.value.unit;
   const image = props.value.image;
   const description = props.value.description;
 
@@ -39,13 +40,15 @@ function MyVerticallyCenteredModal(props) {
           className='d-block w-100'
           src={'image/' + image}
           alt={title}></img>
-        <h3>{price}</h3>
+        <h3>$ {price}</h3>
+        <h3>{unit}</h3>
         <Container>
           <Row>
             <Col sm={8}>
               <TextField onChange={countQuantity} />
             </Col>
             <Col sm={4}>
+              {/* need to change here to add up, total price =  item price x quantity */}
               <Button size='lg' variant='primary' onClick={() => updateOrder.onClick(title, quantity)} >
                 Add to cart
           </Button>

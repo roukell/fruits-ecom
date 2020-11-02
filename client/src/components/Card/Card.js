@@ -33,7 +33,10 @@ const Cards = ({ items }) => {
                     <Card.Title>{item.title}</Card.Title>
                     <Card.Text>
                         {item.text}
-                        {item.price}
+                        <br/>
+                        ${item.price}
+                        <br/>
+                        Unit: {item.unit}
                     </Card.Text>
                     <Button
                         variant='outline-danger'
