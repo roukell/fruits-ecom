@@ -1,7 +1,10 @@
 .contactContainer {
-    height: 72vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 86vh;
 }
 
 .contactRow {
     margin-top: 10%;
+    margin-bottom: 5%;
 }

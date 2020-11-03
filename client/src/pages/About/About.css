@@ -6,12 +6,24 @@ h2, p {
 }
 
 .aboutImg {
-    display: block;
-    justify-content: center;
-    text-align: center;
-    margin-left: 23%;
+    max-width: 60%;
+    height: auto;
 }
 
 .aboutContainer {
-    height: 83vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 86vh;
 }
+
+.aboutRow {
+    margin-bottom: 5%;
+}
+
+@media only screen and (max-width: 540px) {
+    .aboutImg {
+        max-width: 60%;
+        height: auto;
+        margin-left: 22%;
+    }
+  }

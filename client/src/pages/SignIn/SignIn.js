@@ -13,9 +13,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import API from '../../utils/API.js';
 import UserContext from '../../utils/Contexts/UserContext.js';
-import Navigation from '../../components/Navigation/Navigation.js';
-import Footer from '../../components/Footer/Footer.js';
-import customerNavbarItems from '../../utils/Data/customerNavbaritems.js';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -23,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    height: '77vh'
+    height: '82vh'
   },
   avatar: {
     margin: theme.spacing(1),
@@ -65,7 +62,6 @@ const SignIn = props => {
 
   return (
     <>
-    <Navigation items={customerNavbarItems} /> 
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -136,7 +132,6 @@ const SignIn = props => {
         </form>
       </div>
     </Container>
-    <Footer />
     </>
   );
 }

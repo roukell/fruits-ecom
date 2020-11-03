@@ -1,5 +1,7 @@
 .preorderContainer {
-    height: 83vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 86vh;
 }
 
 .productHeader {

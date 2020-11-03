@@ -1,17 +1,13 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import './Contact.css';
-import Navigation from '../../components/Navigation/Navigation.js';
-import Footer from '../../components/Footer/Footer.js';
-import customerNavbarItems from '../../utils/Data/customerNavbaritems.js';
 
 const Contact = () => {
     return (
         <>
-            <Navigation items={customerNavbarItems} />
             <Container className='contactContainer'>
                 <Row className='contactRow'>
-                    <Col sm={8} ><Card.Img variant="top" src={'image/' + 'peach3.jpg'} /></Col>
+                    <Col sm={8} ><Card.Img variant='top' src={'image/' + 'peach3.jpg'} /></Col>
                     <Col sm={4}>
                         <h2>CONTACT US</h2>
                         <p>Any questions?</p>
@@ -31,7 +27,6 @@ const Contact = () => {
                     </Col>
                 </Row>
             </Container>
-            <Footer />
         </>
     )
 }

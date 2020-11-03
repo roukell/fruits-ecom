@@ -14,8 +14,11 @@ import SignUp from './pages/SignUp/SignUp.js';
 import OrderContext from './utils/Contexts/OrderContext.js';
 import UserContext from './utils/Contexts/UserContext.js';
 import API from './utils/API.js';
-// import Admin from './pages/Admin/Admin-backupVersion.js';
 import AdminRA from './pages/Admin/Admin-ra.js';
+import Navigation from './components/Navigation/Navigation.js';
+import Footer from './components/Footer/Footer.js';
+import customerNavbarItems from './utils/Data/customerNavbaritems.js';
+
 
 const App = () => {
   const [orderState, setOrderState] = useState({
@@ -93,7 +96,7 @@ const App = () => {
     <UserContext.Provider value={[customerDetails, setCustomerDetails]}>
       <OrderContext.Provider value={{ orders: orderState.orders, onClick, onDelete, placeOrder }}>
         <Router>
-          <div>
+        <Navigation items={customerNavbarItems} />  
             <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/about' component={About} />
@@ -103,7 +106,7 @@ const App = () => {
               <Route exact path='/signup' component={SignUp} />
               <Route exact path='/admin' component={AdminRA} />
             </Switch>
-          </div>
+          <Footer/>
         </Router>
       </OrderContext.Provider>
     </UserContext.Provider>

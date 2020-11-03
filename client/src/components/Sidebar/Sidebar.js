@@ -36,7 +36,7 @@ const MyRightSidebar = ({ visible, setVisible }) => {
                 vertical
                 direction='right'
                 visible={visible}
-                width='very wide'
+                width='wide'
             >
                 {/* sidebar menu */}
                 <Menu.Item>
