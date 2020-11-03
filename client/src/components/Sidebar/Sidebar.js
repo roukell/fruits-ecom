@@ -8,9 +8,12 @@ const MyRightSidebar = ({ visible, setVisible }) => {
     const orderState = useContext(OrderContext);
 
     const mapMenuItems = orderState.orders.map((item, i) => {
+        const totalPrice = item.quantity*item.price;
+        console.log(totalPrice);
         return (
-            <Menu.Item key={i}>
-                {item.title} x {item.quantity}
+            <Menu.Item key={i} >
+                {item.title} x {item.quantity} 
+                ${totalPrice}
                 <span className='cancelIcon'>
                     <CancelIcon
                         onClick={() => orderState.onDelete(i)}
@@ -33,7 +36,7 @@ const MyRightSidebar = ({ visible, setVisible }) => {
                 vertical
                 direction='right'
                 visible={visible}
-                width='wide'
+                width='very wide'
             >
                 {/* sidebar menu */}
                 <Menu.Item>
