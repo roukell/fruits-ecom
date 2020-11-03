@@ -5,9 +5,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Home from '../src/pages/Home/Home.js';
 import About from './pages/About/About.js';
-import Preorder from './pages/Preorder/Preorder.js';
 import Contact from './pages/Contact/Contact.js';
 import SignIn from './pages/SignIn/SignIn.js';
 import SignUp from './pages/SignUp/SignUp.js';
@@ -18,7 +16,8 @@ import AdminRA from './pages/Admin/Admin-ra.js';
 import Navigation from './components/Navigation/Navigation.js';
 import Footer from './components/Footer/Footer.js';
 import customerNavbarItems from './utils/Data/customerNavbaritems.js';
-
+import Home from '../src/pages/Home/Home.js';
+import Preorder from './pages/Preorder/Preorder.js';
 
 const App = () => {
   const [orderState, setOrderState] = useState({

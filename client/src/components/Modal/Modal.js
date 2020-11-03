@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { Modal, Button, Container, Row, Col } from 'react-bootstrap';
-import './Modal.css';
 import TextField from '../TextField/TextField.js';
 import OrderContext from '../../utils/Contexts/OrderContext.js';
 
@@ -40,8 +39,7 @@ function MyVerticallyCenteredModal(props) {
           className='d-block w-100'
           src={'image/' + image}
           alt={title}></img>
-        <h3>$ {price}</h3>
-        <h3>{unit}</h3>
+        <h3>$ {price} {'  ('}{unit}{')'}</h3>
         <Container>
           <Row>
             <Col sm={8}>
