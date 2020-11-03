@@ -53,7 +53,7 @@ const Navigation = ({ items }) => {
                     <Navbar.Collapse id='responsive-navbar-nav'>
                         <Nav className='mr-auto'>
                             {items.map(({ label, name, link }, i) => (
-                                <Nav key={i} ><Link to={link}>{label}</Link></Nav>
+                            <Nav.Link key={i} as={Link} to={link}>{label}</Nav.Link>
                             ))}
                         </Nav>
                         <Nav>
@@ -62,7 +62,7 @@ const Navigation = ({ items }) => {
 
                         {/* login */}
                         <Nav className='login'>
-                            { customerDetails ? <Nav.Link onClick={signOutCustomer}>Log out</Nav.Link> : <Link to='/signin'>Log In</Link>}
+                            { customerDetails ? <Nav.Link onClick={signOutCustomer}>Log out</Nav.Link> : <Nav.Link as={Link} to='/signin'>Log In</Nav.Link>}
                         </Nav>
 
                         {/* shopping cart icon */}
