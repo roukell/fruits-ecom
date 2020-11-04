@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,11 +12,10 @@ import OrderContext from './utils/Contexts/OrderContext.js';
 import UserContext from './utils/Contexts/UserContext.js';
 import API from './utils/API.js';
 import AdminRA from './pages/Admin/Admin-ra.js';
-import Navigation from './components/Navigation/Navigation.js';
-import Footer from './components/Footer/Footer.js';
-import customerNavbarItems from './utils/Data/customerNavbaritems.js';
 import Home from '../src/pages/Home/Home.js';
 import Preorder from './pages/Preorder/Preorder.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'semantic-ui-css/semantic.min.css';
 
 const App = () => {
   const [orderState, setOrderState] = useState({
@@ -95,7 +93,6 @@ const App = () => {
     <UserContext.Provider value={[customerDetails, setCustomerDetails]}>
       <OrderContext.Provider value={{ orders: orderState.orders, onClick, onDelete, placeOrder }}>
         <Router>
-        <Navigation items={customerNavbarItems} />  
             <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/about' component={About} />
@@ -105,7 +102,6 @@ const App = () => {
               <Route exact path='/signup' component={SignUp} />
               <Route exact path='/admin' component={AdminRA} />
             </Switch>
-          <Footer/>
         </Router>
       </OrderContext.Provider>
     </UserContext.Provider>

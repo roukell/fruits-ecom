@@ -1,7 +1,7 @@
 .contactContainer {
     display: flex;
     flex-direction: column;
-    min-height: 86vh;
+    min-height: 83vh;
 }
 
 .contactRow {

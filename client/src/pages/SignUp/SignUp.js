@@ -10,6 +10,9 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import API from '../../utils/API.js';
+import Navigation from '../../components/Navigation/Navigation.js';
+import Footer from '../../components/Footer/Footer.js';
+import customerNavbarItems from '../../utils/Data/customerNavbaritems.js';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -17,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    height: '82vh'
+    height: '77vh'
   },
   avatar: {
     margin: theme.spacing(1),
@@ -73,101 +76,103 @@ export default function SignUp() {
   };
 
   return (
-    <>   
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign up
+    <>
+      <Navigation items={customerNavbarItems} />
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign up
         </Typography>
-        <form className={classes.form} noValidate>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                name="username"
-                variant="outlined"
-                required
-                fullWidth
-                id="username"
-                label="Username"
-                onChange={handleUsernameChange}
-                autoFocus
-              />
+          <form className={classes.form} noValidate>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField
+                  name="username"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="username"
+                  label="Username"
+                  onChange={handleUsernameChange}
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  autoComplete="current-password"
+                  onChange={handlePasswordChange}
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  autoComplete="fname"
+                  name="firstName"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="firstName"
+                  label="First Name"
+                  onChange={handleFirstNameChange}
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="lastName"
+                  label="Last Name"
+                  name="lastName"
+                  autoComplete="lname"
+                  onChange={handleLastNameChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                  onChange={handleEmailChange}
+                />
+              </Grid>
             </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                onChange={handlePasswordChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-            <TextField
-                autoComplete="fname"
-                name="firstName"
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                label="First Name"
-                onChange={handleFirstNameChange}
-                autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
-                onChange={handleLastNameChange}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                onChange={handleEmailChange}
-              />
-            </Grid>
-          </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            onClick={signUpCustomer}
-          >
-            Sign Up
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              onClick={signUpCustomer}
+            >
+              Sign Up
           </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-              <Link to='/signin' variant="body2">
-                Already have an account? Sign in
+            <Grid container justify="flex-end">
+              <Grid item>
+                <Link to='/signin' variant="body2">
+                  Already have an account? Sign in
               </Link>
+              </Grid>
             </Grid>
-          </Grid>
-        </form>
-      </div>
-    </Container>
+          </form>
+        </div>
+      </Container>
+      <Footer />
     </>
   );
 }
