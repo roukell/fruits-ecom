@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, CardDeck, Button, Row, Container } from 'react-bootstrap';
+import { Card, CardDeck, Row, Container, Button } from 'react-bootstrap';
 import './Card.css';
 import MyVerticallyCenteredModal from '../Modal/Modal.js';
 
@@ -39,7 +39,7 @@ const Cards = ({ items }) => {
                         Unit: {item.unit}
                     </Card.Text>
                     <Button
-                        variant='outline-danger'
+                        variant='light'
                         size='lg'
                         block
                         value={item}

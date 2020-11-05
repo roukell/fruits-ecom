@@ -47,7 +47,11 @@ function MyVerticallyCenteredModal(props) {
             </Col>
             <Col sm={4}>
               {/* need to change here to add up, total price =  item price x quantity */}
-              <Button size='lg' variant='primary' onClick={() => updateOrder.onClick(title, quantity, price)} >
+              <Button
+                size='lg'
+                variant='primary'
+                block
+                onClick={() => updateOrder.onClick(title, quantity, price)} >
                 Add to cart
           </Button>
             </Col>
@@ -58,7 +62,12 @@ function MyVerticallyCenteredModal(props) {
         </p>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button
+          variant='light'
+          onClick={props.onHide}
+        >
+          Close
+          </Button>
       </Modal.Footer>
     </Modal>
   );
