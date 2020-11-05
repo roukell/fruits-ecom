@@ -21,13 +21,13 @@ const About = () => {
                         <br />
                         <p>
                             Our company aim to provide premium quality fruits at its freshest.
+                            <br />
+                            <br />
+                           Pure fruit started in late 1990s with logistic service only. In 2018, we decided to transit into direct fruit sales business that allows our customers to pre-order imported fruits.
+                           <br />
                            <br />
                            Most of the time our customers will have to pre-order items, however,
-                           occassionally we offer fruits that are already in stock.
-                       </p>
-                        <br />
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut euismod orci, sed ultricies nunc. Maecenas ut metus ante. Aliquam posuere rutrum dictum. Nunc porttitor enim quis augue laoreet suscipit. Aenean tempus, eros quis facilisis porta, arcu sem tempus neque, convallis scelerisque urna erat vitae augue. Integer viverra justo fringilla, tempor augue non, tempor massa. Pellentesque eget purus magna. Mauris pharetra tristique tristique. Donec a erat vestibulum leo maximus sagittis. Nulla sed gravida nisi. Integer et orci et ipsum vestibulum eleifend a at felis. Cras vel iaculis sapien. Vestibulum non dignissim erat. Cras efficitur felis nec enim egestas consequat. Aliquam convallis scelerisque pharetra. Nulla cursus mollis urna. Vivamus augue lacus, euismod at libero pharetra, suscipit semper magna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam condimentum velit eu purus efficitur tempor. Sed quis sapien a odio porttitor porttitor. Sed tristique dapibus metus id dignissim.
+                           occasionally we offer fruits that are already in stock.
                         </p>
                     </Col>
                 </Row>

@@ -27,7 +27,7 @@ const Contact = () => {
                         <p>A: You can pay on the day of collection. We accept cash and credit card payments.</p>
                         <br />
                         <p><strong>Q: How will I get a notification?</strong></p>
-                        <p>A: Notificationa are sent via Email usually one week before product arrival.</p>
+                        <p>A: Notifications are sent via Email usually one week before product arrival.</p>
                     </Col>
                 </Row>
             </Container>
