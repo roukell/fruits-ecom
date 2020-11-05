@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container, Dropdown, DropdownButton, NavItem, NavDropdown } from 'react-bootstrap';
 import Badge from '@material-ui/core/Badge';
 import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
@@ -14,7 +14,7 @@ const Navigation = ({ items }) => {
     // visible variable for Sidebar
     const [visible, setVisible] = React.useState(false);
     // useContext to access customer details in localStorage
-    const [customerDetails, setCustomerDetails] =  useContext(UserContext);
+    const [customerDetails, setCustomerDetails] = useContext(UserContext);
 
     // sytle badbe for shopping cart icon
     const StyledBadge = withStyles((theme) => ({
@@ -29,7 +29,7 @@ const Navigation = ({ items }) => {
     const signOutCustomer = event => {
         event.preventDefault();
         API.logOutCustomer()
-           .then(data => setCustomerDetails())
+            .then(data => setCustomerDetails())
     };
 
     return (
@@ -53,16 +53,26 @@ const Navigation = ({ items }) => {
                     <Navbar.Collapse id='responsive-navbar-nav'>
                         <Nav className='mr-auto'>
                             {items.map(({ label, name, link }, i) => (
-                            <Nav.Link key={i} as={Link} to={link}>{label}</Nav.Link>
+                                <Nav.Link key={i} as={Link} to={link}>{label}</Nav.Link>
                             ))}
                         </Nav>
                         <Nav>
-                            { customerDetails ? <Nav.Item>Welcome {customerDetails['firstName']}</Nav.Item> : <Nav.Item></Nav.Item>}
+                            {customerDetails ?
+                                <NavDropdown
+                                    id="dropdown-basic-button"
+                                    title={'Welcome ' + customerDetails['firstName']}
+                                    variant='light'
+                                >
+                                    <NavDropdown.Item href="#/action-1" variant="success">Profile</NavDropdown.Item>
+                                    <NavDropdown.Item href="#/action-2">Order History</NavDropdown.Item>
+                                </NavDropdown>
+                                :
+                                <Nav.Item></Nav.Item>}
                         </Nav>
 
                         {/* login */}
                         <Nav className='login'>
-                            { customerDetails ? <Nav.Link onClick={signOutCustomer}>Log out</Nav.Link> : <Nav.Link as={Link} to='/signin'>Log In</Nav.Link>}
+                            {customerDetails ? <Nav.Link onClick={signOutCustomer}>Log out</Nav.Link> : <Nav.Link as={Link} to='/signin'>Log In</Nav.Link>}
                         </Nav>
 
                         {/* shopping cart icon */}
@@ -80,8 +90,8 @@ const Navigation = ({ items }) => {
 
             {/* Sidebar component */}
             <Sidebar
-            visible={visible}
-            setVisible={setVisible} 
+                visible={visible}
+                setVisible={setVisible}
             />
         </>
     )

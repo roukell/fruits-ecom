@@ -42,4 +42,17 @@ a.login.nav-link :hover {
   outline: none;
 }
 
+a.dropdown-item.active  {
+  background-color: darkgray;
+}
+
+a.dropdown-item:active {
+  background-color: darkgray;
+}
+
+a#dropdown-basic-button {
+  padding: auto;
+  padding-top: 9px;
+  font-size: 15px;
+}
 
