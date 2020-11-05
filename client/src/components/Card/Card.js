@@ -40,7 +40,7 @@ const Cards = ({ items }) => {
                     </Card.Text>
                     <Button
                         variant='light'
-                        size='lg'
+                        size='md'
                         block
                         value={item}
                         onClick={() => clickFunctions({item})}
