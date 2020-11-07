@@ -1,0 +1,5 @@
+.profileContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 83vh;
+}

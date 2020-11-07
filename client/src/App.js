@@ -14,6 +14,8 @@ import API from './utils/API.js';
 import AdminRA from './pages/Admin/Admin-ra.js';
 import Home from '../src/pages/Home/Home.js';
 import Preorder from './pages/Preorder/Preorder.js';
+import Profile from './pages/Profile/Profile.js';
+import OrderHistory from './pages/OrderHistory/OrderHistory.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'semantic-ui-css/semantic.min.css';
 
@@ -100,6 +102,8 @@ const App = () => {
               <Route exact path='/contact' component={Contact} />
               <Route exact path='/signin' component={SignIn} />
               <Route exact path='/signup' component={SignUp} />
+              <Route exact path='/profile' component={Profile} />
+              <Route exact path='/orderHistory' component={OrderHistory} />
               <Route exact path='/admin' component={AdminRA} />
             </Switch>
         </Router>

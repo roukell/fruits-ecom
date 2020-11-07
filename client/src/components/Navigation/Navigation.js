@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, Container, Dropdown, DropdownButton, NavItem, NavDropdown } from 'react-bootstrap';
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import Badge from '@material-ui/core/Badge';
 import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
@@ -63,8 +63,8 @@ const Navigation = ({ items }) => {
                                     title={'Welcome ' + customerDetails['firstName']}
                                     variant='light'
                                 >
-                                    <NavDropdown.Item href="#/action-1" variant="success">Profile</NavDropdown.Item>
-                                    <NavDropdown.Item href="#/action-2">Order History</NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} to='/profile' variant="success">Profile</NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} to='/orderHistory'>Order History</NavDropdown.Item>
                                 </NavDropdown>
                                 :
                                 <Nav.Item></Nav.Item>}
