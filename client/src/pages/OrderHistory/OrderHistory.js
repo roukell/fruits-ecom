@@ -5,6 +5,7 @@ import Footer from '../../components/Footer/Footer.js';
 import customerNavbarItems from '../../utils/Data/customerNavbaritems.js';
 import './OrderHistory.css';
 import API from '../../utils/API.js';
+import dateFormat from 'dateformat';
 
 const OrderHistory = () => {
     const [orderHistory, setOrderHistory] = useState([]);
@@ -23,18 +24,52 @@ const OrderHistory = () => {
     }, []);
 
     const orderHistoryItems = orderHistory.map((item, i) => {
+        const formattedDate = dateFormat(item.date, "dddd, mmmm dS, yyyy");
+        
+        let array = [];
+
+        item.orders.map(items => {
+            const total = items.quantity * items.price;
+            array.push(total);
+        })
+
+        const totalPrice = array.reduce((a, b) => {
+            return a + b;
+        })
+
         return (
             <tr key={i}>
-                <td>{item.date}</td>
+                <td>{formattedDate}</td>
                 <td>{item.status}</td>
                 <td>
-                    {item.orders.map((order, j) => {
+                    {item.orders.map((order, i) => {
                         return (
-                            <li key={j}>
-                                {order.title} x {order.quantity}
+                            <li key={i}>
+                                {order.title}
                             </li>
                         )
                     })}
+                </td>
+                <td>
+                    {item.orders.map((order, i) => {
+                        return (
+                            <li key={i}>
+                                {order.quantity}
+                            </li>
+                        )
+                    })}
+                </td>
+                <td>
+                    {item.orders.map((order, i) => {
+                        return (
+                            <li key={i}>
+                                {order.price}
+                            </li>
+                        )
+                    })}
+                </td>
+                <td>
+                    {totalPrice}
                 </td>
             </tr>
         )
@@ -50,7 +85,10 @@ const OrderHistory = () => {
                         <tr>
                             <th>Date</th>
                             <th>Status</th>
-                            <th>Product name x Quantity</th>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th>Price/Unit</th>
+                            <th>Total Price</th>
                         </tr>
                     </thead>
                     <tbody>
