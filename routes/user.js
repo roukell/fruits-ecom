@@ -77,6 +77,14 @@ router.get('/api/getCustomerDetails', (req, res) => {
     User.find({})
     .then(data => res.json(data))
     .catch(err => res.status(422).json(err))
-})
+});
+
+router.post('/api/getCurrentLoggedInCustomerDetails', (req, res) => {
+    User.findOne({
+        username: req.body.username
+    })
+    .then(data => res.json(data))
+    .catch(err => res.status(422).json(err))
+});
 
 module.exports = router;

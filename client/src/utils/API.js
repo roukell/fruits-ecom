@@ -9,13 +9,8 @@ export default {
   logInCustomer: function (logInData) {
     return axios.post('/login', logInData)
       .then(data => {
-        console.log(data.data.username)
-        // if (data.data.username === 'admin') {
-        //   window.location = '/admin';
-        // } else {
-          window.location = '/';
-          return data;
-        // }
+        window.location = '/';
+        return data;
       })
       .catch(error => {
         console.log(error);
@@ -28,11 +23,11 @@ export default {
 
   logOutCustomer: function () {
     return axios.get('/logout ')
-      .then( data => {
+      .then(data => {
         localStorage.removeItem('user');
         window.location = '/';
       }
-        )
+      )
       .catch(error => {
         console.log(error)
       })
@@ -48,11 +43,19 @@ export default {
       })
   },
 
-  getCustomerDetails: function(req, res) {
+  getCustomerDetails: function (req, res) {
     return axios.get('/api/getCustomerDetails')
   },
 
   getOrders: function () {
     return axios.get('/api/getOrders')
+  },
+
+  getCurrentLoggedInCustomerDetails: function (user) {
+    return axios.post('/api/getCurrentLoggedInCustomerDetails', user)
+      .then(data => {
+        return data
+      })
   }
+
 };
