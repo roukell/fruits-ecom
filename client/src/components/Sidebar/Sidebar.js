@@ -9,7 +9,7 @@ const MyRightSidebar = ({ visible, setVisible }) => {
 
     const mapMenuItems = orderState.orders.map((item, i) => {
         const totalPrice = item.quantity*item.price;
-        console.log(totalPrice);
+
         return (
             <Menu.Item key={i} >
                 {item.title} x {item.quantity} 

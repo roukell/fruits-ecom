@@ -24,7 +24,7 @@ const Profile = () => {
 
     const profileItems = (
         <>
-            <p>Profile</p>
+            <h3>Profile</h3>
             <p>Username: {currentCustomer.username}</p>
             <p>First name: {currentCustomer.firstName}</p>
             <p>Last name: {currentCustomer.lastName}</p>

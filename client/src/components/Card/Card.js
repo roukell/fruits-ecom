@@ -61,12 +61,7 @@ const Cards = ({ items }) => {
         <>
             <Container>
                 <CardDeck>
-
-            
-
                     {cardItems}
-
-                
                 </CardDeck>
             </Container>
         </>

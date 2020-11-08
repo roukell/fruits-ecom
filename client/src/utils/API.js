@@ -56,6 +56,13 @@ export default {
       .then(data => {
         return data
       })
+  },
+
+  getCurrentLoggedInCustomerOrderHistory: function (user) {
+    return axios.post('/api/getCurrentLoggedInCustomerOrderHistory', user)
+    .then(data => {
+      return data
+    })
   }
 
 };

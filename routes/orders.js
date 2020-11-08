@@ -21,4 +21,13 @@ router.get('/api/getOrders', (req, res) => {
     .catch(err => res.status(422).json(err))
 })
 
+router.post('/api/getCurrentLoggedInCustomerOrderHistory', (req, res) => {
+    Orders.find({
+        username: req.body.username
+    }, (err, data) => {
+        if (err) throw err;
+        res.json(data);
+    }); 
+})
+
 module.exports = router;
