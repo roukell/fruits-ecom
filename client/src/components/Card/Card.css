@@ -26,3 +26,7 @@ div .card-text {
     text-align: center;
     justify-content: center;
 }
+
+.card {
+    display: inline-table !important;
+}

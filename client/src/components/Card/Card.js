@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, CardDeck, Row, Container, Button, Col } from 'react-bootstrap';
+import { Card, CardDeck, Row, Container, Button, Col, CardColumns } from 'react-bootstrap';
 import './Card.css';
 import MyVerticallyCenteredModal from '../Modal/Modal.js';
 
@@ -27,16 +27,15 @@ const Cards = ({ items }) => {
     // render products items
     const cardItems = items.map((item) => {
         return (
-            <Col xs={6} md={4} key={item.title}>
             <Card border='light' style={{ width: '20rem' }} key={item.title}>
                 <Card.Img variant="top" src={'image/' + item.image} />
                 <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
                     <Card.Text>
                         {item.text}
-                        <br/>
+                        <br />
                         ${item.price}
-                        <br/>
+                        <br />
                         Unit: {item.unit}
                     </Card.Text>
                     <Button
@@ -44,7 +43,7 @@ const Cards = ({ items }) => {
                         size='md'
                         block
                         value={item}
-                        onClick={() => clickFunctions({item})}
+                        onClick={() => clickFunctions({ item })}
                     >
                         VIEW DETAILS
                         </Button>
@@ -55,17 +54,19 @@ const Cards = ({ items }) => {
                     />
                 </Card.Body>
             </Card>
-            </Col>
         )
     })
 
     return (
         <>
             <Container>
-                <CardDeck className='justify-content-md-center'>
-                    <Row >
-                        {cardItems}
-                    </Row>
+                <CardDeck>
+
+            
+
+                    {cardItems}
+
+                
                 </CardDeck>
             </Container>
         </>
