@@ -32,7 +32,7 @@ function ControlledCarousel() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={'image/strawberry1.jpg'}
+            src={'image/strawberry3.jpg'}
             alt="Second slide"
           />
           <Carousel.Caption>
