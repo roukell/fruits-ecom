@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Icon, Menu, Sidebar } from 'semantic-ui-react';
+import { Icon, Menu, Sidebar, Button } from 'semantic-ui-react';
 import './Sidebar.css';
 import OrderContext from '../../utils/Contexts/OrderContext.js';
 import CancelIcon from '@material-ui/icons/Cancel';
@@ -8,11 +8,11 @@ const MyRightSidebar = ({ visible, setVisible }) => {
     const orderState = useContext(OrderContext);
 
     const mapMenuItems = orderState.orders.map((item, i) => {
-        const totalPrice = item.quantity*item.price;
+        const totalPrice = item.quantity * item.price;
 
         return (
             <Menu.Item key={i} >
-                {item.title} x {item.quantity} 
+                {item.title} x {item.quantity}
                 ${totalPrice}
                 <span className='cancelIcon'>
                     <CancelIcon
@@ -43,14 +43,25 @@ const MyRightSidebar = ({ visible, setVisible }) => {
                     <Icon name='cart' />
                         Your Order
                     </Menu.Item>
+
                 <div>
                     {mapMenuItems}
                 </div>
-                { orderState.orders[0] ? <button
-                onClick={orderState.placeOrder}
+                {orderState.orders[0] ? <button
+                    onClick={orderState.placeOrder}
                 >Place Order
-                </button> : <p>No items in cart</p>}
-                
+                </button> : <h4>No items in cart</h4>}
+
+                <br />
+                <br />
+                <Button animated='vertical'
+                    onClick={() => setVisible(false)}
+                >
+                    <Button.Content visible>Continue Shopping</Button.Content>
+                    <Button.Content hidden>
+                        <Icon name='shopping bag' />
+                    </Button.Content>
+                </Button>
             </Sidebar>
         </>
     )
