@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Modal, Button, Container, Row, Col } from 'react-bootstrap';
 import TextField from '../TextField/TextField.js';
 import OrderContext from '../../utils/Contexts/OrderContext.js';
+import './Modal.css';
 
 function MyVerticallyCenteredModal(props) {
   // modal elements
@@ -25,7 +26,7 @@ function MyVerticallyCenteredModal(props) {
   return (
     <Modal
       {...props}
-      size="lg"
+      dialogClassName="modal-90w"
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
@@ -35,31 +36,43 @@ function MyVerticallyCenteredModal(props) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <img
-          className='d-block w-100'
-          src={'image/' + image}
-          alt={title}></img>
-        <h3>$ {price} {'  ('}{unit}{')'}</h3>
         <Container>
           <Row>
-            <Col sm={8}>
-              <TextField onChange={countQuantity} />
+            <Col lg={6}>
+              <img
+                className='d-block w-100'
+                src={'image/' + image}
+                alt={title}></img>
             </Col>
-            <Col sm={4}>
-              {/* need to change here to add up, total price =  item price x quantity */}
-              <Button
-                size='lg'
-                variant='primary'
-                block
-                onClick={() => updateOrder.onClick(title, quantity, price)} >
-                Add to cart
-          </Button>
+            <Col lg={6} >
+              <p>
+                {description}
+              </p>
+              <br/>
+              <br/>
+              <p>$ {price} {'  ('}{unit}{')'}</p>
+              <br/>
+              <br/>
+              <br/>
+              <Row>
+                <Col sm={6}>
+                  <TextField onChange={countQuantity} />
+                </Col>
+                <Col sm={6}>
+                  <Button
+                    size='lg'
+                    variant='primary'
+                    block
+                    onClick={() => updateOrder.onClick(title, quantity, price)} >
+                    Add to cart
+                </Button>
+                </Col>
+              </Row>
+
+
             </Col>
           </Row>
         </Container>
-        <p>
-          {description}
-        </p>
       </Modal.Body>
       <Modal.Footer>
         <Button
