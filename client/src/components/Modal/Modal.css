@@ -2,6 +2,20 @@
     min-width: 60%;
 }
 
-p {
-    font-size: medium;
+.modalDescription {
+    font-size: 18px;
+    text-align: justify;
+    padding: auto;
+    margin-top: 3%;
+}
+
+.modalPrice {
+    font-size: 18px;
+    text-align: justify;
+    padding: auto;
+    margin-top: 3%;
+}
+
+div.modalTitle {
+   padding-left: 2%;
 }

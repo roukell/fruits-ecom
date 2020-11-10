@@ -11,7 +11,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
 import OrderContext from '../../utils/Contexts/OrderContext.js';
 import CancelIcon from '@material-ui/icons/Cancel';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import './Checkout.css';
@@ -55,9 +54,9 @@ const Checkout = () => {
         listItem: {
             padding: theme.spacing(1, 0),
         },
-        total: {
-            fontWeight: 700,
-        },
+        // total: {
+        //     fontWeight: 700,
+        // },
         title: {
             marginTop: theme.spacing(2),
         },
@@ -107,7 +106,6 @@ const Checkout = () => {
         <>
             <Navigation items={customerNavbarItems} />
             <Container className='checkoutContainer'>
-                <CssBaseline />
                 <main className={classes.layout}>
                     <Paper className={classes.paper}>
                         <Typography component="h1" variant="h4" align="center">

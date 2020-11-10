@@ -19,7 +19,7 @@ const products = [
     title: 'Shine Muscat',
     text: 'Crispy, fragrant seedless green grape variety developed in Japan',
     price: '80',
-    unit: '1kg',
+    unit: '750g',
     image: 'grape2.jpg',
     description: 'Japanese muscat grapes are larger than the average grape and have an oval to oblong shape, growing in tightly packed, medium-sized bunches. The skin is taut, smooth, and glossy, ranging in color from bright green, pink, to red, depending on the specific variety. Underneath the surface, the flesh is generally translucent, soft, aqueous, and nearly seedless, though some varieties may contain a few, small undeveloped seeds. Japanese muscat grapes have a crisp, snap-like quality followed by a soft, juicy consistency. The grapes have high sugar content, averaging 18 Brix, and are known for their sweet, floral flavor with notes of tropical fruits, honey, and musk.'
   },
@@ -34,7 +34,7 @@ const products = [
   {
     title: 'Monthong – Golden Pillow Durian',
     text: 'The flesh of the fruit is very meaty and can be considered one of the least pungent in both aroma and flavor.',
-    price: '10',
+    price: '15',
     unit: 'per kg',
     image: 'durian.jpg',
     description: 'Large fruit, often 3 – 5 kilos per fruit and is characterized by large triangular spikes. The flesh of the fruit is very meaty and can be considered one of the least pungent in both aroma and flavor. It’s rich and sweet. The chunks of durian that emerge from a monthong are gigantic, some are the size of personal baguettes.'

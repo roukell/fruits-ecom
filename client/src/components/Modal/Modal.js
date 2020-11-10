@@ -31,7 +31,7 @@ function MyVerticallyCenteredModal(props) {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
+        <Modal.Title id="contained-modal-title-vcenter" className='modalTitle'>
           {title}
         </Modal.Title>
       </Modal.Header>
@@ -44,16 +44,13 @@ function MyVerticallyCenteredModal(props) {
                 src={'image/' + image}
                 alt={title}></img>
             </Col>
-            <Col lg={6} >
-              <p>
+            <Col lg={6}>
+              <p className='modalDescription'>
                 {description}
               </p>
-              <br/>
-              <br/>
-              <p>$ {price} {'  ('}{unit}{')'}</p>
-              <br/>
-              <br/>
-              <br/>
+              <p className='modalPrice'>
+                $ {price} {'  ('}{unit}{')'}
+              </p>
               <Row>
                 <Col sm={6}>
                   <TextField onChange={countQuantity} />

@@ -1,16 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Container } from 'react-bootstrap';
-import Navigation from '../../components/Navigation/Navigation.js';
 import Footer from '../../components/Footer/Footer.js';
 import customerNavbarItems from '../../utils/Data/customerNavbaritems.js';
 import API from '../../utils/API.js';
 import { makeStyles } from '@material-ui/core/styles';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import './Profile.css';
+import Navigation from '../../components/Navigation/Navigation.js';
 
 const Profile = () => {
     const useStyles = makeStyles((theme) => ({
@@ -132,7 +131,6 @@ const Profile = () => {
         <>
             <Navigation items={customerNavbarItems} />
             <Container className='profileContainer'>
-                <CssBaseline />
                 <main className={classes.layout}>
                     <Paper className={classes.paper}>
                         <Typography component="h4" variant="h4" align="center">

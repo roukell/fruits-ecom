@@ -33,7 +33,7 @@ const Cards = ({ items }) => {
                     <Card.Title>{item.title}</Card.Title>
                     <Card.Text>
                         {item.text}
-                        <br />
+                        <br/>      
                         ${item.price}
                         <br />
                         Unit: {item.unit}

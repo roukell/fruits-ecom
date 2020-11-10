@@ -25,6 +25,7 @@ div .card-text {
     position: relative;
     text-align: center;
     justify-content: center;
+    font-size: medium;
 }
 
 .card {
