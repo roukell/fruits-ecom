@@ -80,7 +80,10 @@ const OrderHistory = () => {
             <Navigation items={customerNavbarItems} />
             <Container className='orderHistoryContainer'>
                 <h3>Order History</h3>
-                <Table striped bordered hover>
+                <Table 
+                striped bordered hover
+                responsive='sm'
+                >
                     <thead>
                         <tr>
                             <th>Date</th>
