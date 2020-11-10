@@ -3,17 +3,15 @@ import { Icon, Menu, Sidebar, Button } from 'semantic-ui-react';
 import './Sidebar.css';
 import OrderContext from '../../utils/Contexts/OrderContext.js';
 import CancelIcon from '@material-ui/icons/Cancel';
+import { Link } from 'react-router-dom';
 
 const MyRightSidebar = ({ visible, setVisible }) => {
     const orderState = useContext(OrderContext);
 
     const mapMenuItems = orderState.orders.map((item, i) => {
-        const totalPrice = item.quantity * item.price;
-
         return (
             <Menu.Item key={i} >
                 {item.title} x {item.quantity}
-                ${totalPrice}
                 <span className='cancelIcon'>
                     <CancelIcon
                         onClick={() => orderState.onDelete(i)}
@@ -47,11 +45,18 @@ const MyRightSidebar = ({ visible, setVisible }) => {
                 <div>
                     {mapMenuItems}
                 </div>
-                {orderState.orders[0] ? <button
+                {/* {orderState.orders[0] ? <button
                     onClick={orderState.placeOrder}
                 >Place Order
-                </button> : <h4>No items in cart</h4>}
+                </button> : <h4>No items in cart</h4>} */}
 
+                {orderState.orders[0] ? <Button
+                    as={Link} 
+                    to='/checkout'>
+                       Checkout 
+                </Button> 
+                : 
+                <h4>No items in cart</h4>}
                 <br />
                 <br />
                 <Button animated='vertical'

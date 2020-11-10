@@ -1,0 +1,9 @@
+.MuiTypography-displayBlock {
+    display: table !important;
+}
+
+.checkoutContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 83vh;
+}
