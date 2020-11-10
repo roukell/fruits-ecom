@@ -45,11 +45,6 @@ const MyRightSidebar = ({ visible, setVisible }) => {
                 <div>
                     {mapMenuItems}
                 </div>
-                {/* {orderState.orders[0] ? <button
-                    onClick={orderState.placeOrder}
-                >Place Order
-                </button> : <h4>No items in cart</h4>} */}
-
                 {orderState.orders[0] ? <Button
                     as={Link} 
                     to='/checkout'>
