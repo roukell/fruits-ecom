@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import Navigation from '../../components/Navigation/Navigation.js';
 import Footer from '../../components/Footer/Footer.js';
@@ -15,7 +14,6 @@ import CancelIcon from '@material-ui/icons/Cancel';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-
 import './Checkout.css';
 
 const Checkout = () => {
@@ -119,25 +117,23 @@ const Checkout = () => {
                         <>
                             <Typography variant="h6" gutterBottom>
                                 Order summary
-                         </Typography>
+                            </Typography>
                             <List disablePadding>
                                 {mapOrderItems}
                                 <ListItem className={classes.listItem}>
                                     <ListItemText primary="Total" />
-                                    {orderState.orders[0] ? 
-                                    <Typography variant="subtitle1" className={classes.total}>
-                                        {'$' + total}
+                                    {/* if no order, total amount is $0 */}
+                                    {orderState.orders[0] ?
+                                        <Typography variant="subtitle1" className={classes.total}>
+                                            {'$' + total}
+                                        </Typography>
+                                        :
+                                        <Typography variant="subtitle1" className={classes.total}>
+                                            $0
                                     </Typography>
-                                    :
-                                    <Typography variant="subtitle1" className={classes.total}>
-                                        $0
-                                    </Typography>
-                                }
-                                    
+                                    }
                                 </ListItem>
                             </List>
-
-
                             <Grid container spacing={2}>
                                 <Grid item xs={12} sm={6}>
                                     <Typography variant="h6" gutterBottom className={classes.title}>
@@ -163,10 +159,10 @@ const Checkout = () => {
                                 </Grid>
                             </Grid>
                         </>
-
                         {/* buttons section: checkout and continue shopping */}
                         <>
                             <div className={classes.buttons}>
+                                {/* if no order, button changes from place order to continue shopping */}
                                 {orderState.orders[0] ?
                                     <Button
                                         variant="contained"
@@ -180,7 +176,7 @@ const Checkout = () => {
                                     <Button
                                         variant="contained"
                                         color="primary"
-                                        onClick={() => {window.location = '/'}}
+                                        onClick={() => { window.location = '/' }}
                                         className={classes.button}
                                     >
                                         Continue Shopping
@@ -188,7 +184,6 @@ const Checkout = () => {
                                 }
                             </div>
                         </>
-
                     </Paper>
                 </main>
             </Container>
