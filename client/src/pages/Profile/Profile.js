@@ -1,12 +1,56 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Container } from 'react-bootstrap';
 import Navigation from '../../components/Navigation/Navigation.js';
 import Footer from '../../components/Footer/Footer.js';
 import customerNavbarItems from '../../utils/Data/customerNavbaritems.js';
-import './Profile.css';
 import API from '../../utils/API.js';
+import { makeStyles } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
+import './Profile.css';
 
 const Profile = () => {
+    const useStyles = makeStyles((theme) => ({
+        appBar: {
+            position: 'relative',
+        },
+        layout: {
+            width: 'auto',
+            marginLeft: theme.spacing(2),
+            marginRight: theme.spacing(2),
+            [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
+                width: 600,
+                marginLeft: 'auto',
+                marginRight: 'auto',
+            },
+        },
+        paper: {
+            marginTop: theme.spacing(3),
+            marginBottom: theme.spacing(3),
+            padding: theme.spacing(2),
+            [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
+                marginTop: theme.spacing(6),
+                marginBottom: theme.spacing(6),
+                padding: theme.spacing(3),
+            },
+        },
+        stepper: {
+            padding: theme.spacing(3, 0, 5),
+        },
+        buttons: {
+            display: 'flex',
+            justifyContent: 'flex-end',
+        },
+        button: {
+            marginTop: theme.spacing(3),
+            marginLeft: theme.spacing(1),
+        },
+    }));
+
+    const classes = useStyles();
     const [currentCustomer, setCurrentCustomer] = useState('null');
 
     useEffect(() => {
@@ -24,11 +68,63 @@ const Profile = () => {
 
     const profileItems = (
         <>
-            <h3>Profile</h3>
-            <p>Username: {currentCustomer.username}</p>
-            <p>First name: {currentCustomer.firstName}</p>
-            <p>Last name: {currentCustomer.lastName}</p>
-            <p>Email: {currentCustomer.email}</p>
+            <Typography variant="h6" gutterBottom>
+                Details
+            </Typography>
+            <Grid container spacing={3}>
+            <Grid item xs={12}>
+                    <TextField
+                        id="username"
+                        name="username"
+                        label='Username'
+                        value={currentCustomer.username}
+                        fullWidth
+                        autoComplete="username"
+                        InputLabelProps={{
+                            shrink: true,
+                          }}
+                    />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                        id="firstName"
+                        name="firstName"
+                        label='First name'
+                        value={currentCustomer.firstName}
+                        fullWidth
+                        autoComplete="given-name"
+                        InputLabelProps={{
+                            shrink: true,
+                          }}
+                    />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                        id="lastName"
+                        name="lastName"
+                        label='Last name'
+                        value={currentCustomer.lastName}
+                        fullWidth
+                        autoComplete="family-name"
+                        InputLabelProps={{
+                            shrink: true,
+                          }}
+                    />
+                </Grid>
+                <Grid item xs={12}>
+                    <TextField
+                        id="email"
+                        name="email"
+                        label='Email'
+                        value={currentCustomer.email}
+                        fullWidth
+                        autoComplete="email"
+                        InputLabelProps={{
+                            shrink: true,
+                          }}
+                    />
+                </Grid>
+            </Grid>
         </>
     )
 
@@ -36,7 +132,15 @@ const Profile = () => {
         <>
             <Navigation items={customerNavbarItems} />
             <Container className='profileContainer'>
-                {profileItems}
+                <CssBaseline />
+                <main className={classes.layout}>
+                    <Paper className={classes.paper}>
+                        <Typography component="h4" variant="h4" align="center">
+                            My Account
+                        </Typography>
+                        {profileItems}
+                    </Paper>
+                </main>
             </Container>
             <Footer />
         </>
