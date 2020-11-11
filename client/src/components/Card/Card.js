@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, CardDeck, Row, Container, Button, Col, CardColumns } from 'react-bootstrap';
+import { Card, CardDeck, Container, Button } from 'react-bootstrap';
 import './Card.css';
 import MyVerticallyCenteredModal from '../Modal/Modal.js';
 
