@@ -2,9 +2,12 @@ import React, { useContext, useState } from 'react';
 import { Modal, Button, Container, Row, Col } from 'react-bootstrap';
 import TextField from '../TextField/TextField.js';
 import OrderContext from '../../utils/Contexts/OrderContext.js';
+import OrderModalContext from '../../utils/Contexts/OrderModalContext.js';
+import WarningModal from './WarningModal.js';
 import './Modal.css';
 
 function MyVerticallyCenteredModal(props) {
+  const orderModalState = useContext(OrderModalContext);
   // modal elements
   const title = props.value.title;
   // const text = props.value.text;
@@ -53,7 +56,9 @@ function MyVerticallyCenteredModal(props) {
               </p>
               <Row>
                 <Col sm={6}>
-                  <TextField onChange={countQuantity} />
+                  <TextField 
+                  onChange={countQuantity}
+                   />
                 </Col>
                 <Col sm={6}>
                   <Button
@@ -63,10 +68,12 @@ function MyVerticallyCenteredModal(props) {
                     onClick={() => updateOrder.onClick(title, quantity, price)} >
                     Add to cart
                 </Button>
+                  <WarningModal
+                    open={orderModalState.open}
+                    onClose={orderModalState.handleClose}
+                  />
                 </Col>
               </Row>
-
-
             </Col>
           </Row>
         </Container>

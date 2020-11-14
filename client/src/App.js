@@ -3,13 +3,14 @@ import {
   BrowserRouter as Router,
   Switch,
   Route
-} from "react-router-dom";
+} from 'react-router-dom';
 import About from './pages/About/About.js';
 import Contact from './pages/Contact/Contact.js';
 import SignIn from './pages/SignIn/SignIn.js';
 import SignUp from './pages/SignUp/SignUp.js';
 import OrderContext from './utils/Contexts/OrderContext.js';
 import UserContext from './utils/Contexts/UserContext.js';
+import OrderModalContext from './utils/Contexts/OrderModalContext.js';
 import API from './utils/API.js';
 import AdminRA from './pages/Admin/Admin-ra.js';
 import Home from '../src/pages/Home/Home.js';
@@ -24,6 +25,18 @@ const App = () => {
   const [orderState, setOrderState] = useState({
     orders: []
   });
+  // state for place order warning
+  const [placeOrderWarning, setPlaceOrderWarning] = useState('null');
+  // variable and functions for warning modal
+  const [open, setOpen] = React.useState(false);
+  // place order warning modal functions: hanldOpen and handleClose
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   // when componentDidMount, get orders from localStorage
   useEffect(() => {
@@ -37,12 +50,14 @@ const App = () => {
   const onClick = (title, quantity, price) => {
     // console.log(Math.sign(quantity));
     const testNegative = Math.sign(quantity);
-    if (quantity !== '0' && testNegative !== -1 ) {
+    console.log(typeof quantity);
+    if (quantity !== '0' && testNegative !== -1 && quantity !== '') {
       const orders = [...orderState.orders, { title, quantity, price }];
-    localStorage.setItem('orders', JSON.stringify({ ...orderState, orders }));
-    setOrderState({ ...orderState, orders });
+      localStorage.setItem('orders', JSON.stringify({ ...orderState, orders }));
+      setOrderState({ ...orderState, orders });
     } else {
-      alert('Quantity cannot be 0 or nagative')
+      setPlaceOrderWarning('Quantity cannot be 0 or nagative');
+      handleOpen();
     }
   }
 
@@ -76,39 +91,40 @@ const App = () => {
 
   // need to use api to send order to backend
   const placeOrder = () => {
-    // console.log('send order to backend');
-    // console.log(orderState.orders.title);
-    // console.log(customerDetails['username']);
     if (customerDetails === undefined) {
-      alert('please log in before placing an order');
+      setPlaceOrderWarning('Please log in before placing an order');
+      handleOpen();
       return;
     } else {
+      setPlaceOrderWarning('Thank you for shopping with us');
+      handleOpen();
       API.sendOrderToBackend({
         orders: orderState.orders,
         username: customerDetails['username']
       })
       resetOrder();
-      alert('Thank you for shopping with us');
     }
   };
 
   return (
     <UserContext.Provider value={[customerDetails, setCustomerDetails]}>
       <OrderContext.Provider value={{ orders: orderState.orders, onClick, onDelete, placeOrder }}>
+        <OrderModalContext.Provider value={{placeOrderWarning, open, handleOpen, handleClose }}>
         <Router>
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route exact path='/about' component={About} />
-              <Route exact path='/preorder' component={Preorder} />
-              <Route exact path='/contact' component={Contact} />
-              <Route exact path='/signin' component={SignIn} />
-              <Route exact path='/signup' component={SignUp} />
-              <Route exact path='/profile' component={Profile} />
-              <Route exact path='/checkout' component={Checkout} />
-              <Route exact path='/orderHistory' component={OrderHistory} />
-              <Route exact path='/admin' component={AdminRA} />
-            </Switch>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/about' component={About} />
+            <Route exact path='/preorder' component={Preorder} />
+            <Route exact path='/contact' component={Contact} />
+            <Route exact path='/signin' component={SignIn} />
+            <Route exact path='/signup' component={SignUp} />
+            <Route exact path='/profile' component={Profile} />
+            <Route exact path='/checkout' component={Checkout} />
+            <Route exact path='/orderHistory' component={OrderHistory} />
+            <Route exact path='/admin' component={AdminRA} />
+          </Switch>
         </Router>
+        </OrderModalContext.Provider>
       </OrderContext.Provider>
     </UserContext.Provider>
   );

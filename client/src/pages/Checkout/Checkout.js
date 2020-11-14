@@ -10,9 +10,11 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Grid from '@material-ui/core/Grid';
 import OrderContext from '../../utils/Contexts/OrderContext.js';
+import OrderModalContext from '../../utils/Contexts/OrderModalContext.js';
 import CancelIcon from '@material-ui/icons/Cancel';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import WarningModal from '../../components/Modal/WarningModal.js';
 import './Checkout.css';
 
 const Checkout = () => {
@@ -66,6 +68,7 @@ const Checkout = () => {
     const orderState = useContext(OrderContext);
     // total is the total price of the order
     const [total, setTotal] = useState(0);
+    const orderModalState = useContext(OrderModalContext);
 
     // only setTotal when orderState changes to avoid infinite re-render
     useEffect(() => {
@@ -180,7 +183,12 @@ const Checkout = () => {
                                         Continue Shopping
                                     </Button>
                                 }
+                                <WarningModal
+                                    open={orderModalState.open}
+                                    onClose={orderModalState.handleClose}
+                                />
                             </div>
+
                         </>
                     </Paper>
                 </main>
