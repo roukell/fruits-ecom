@@ -11,7 +11,7 @@ const Home = () => {
     return(
         <>
         <Navigation items={customerNavbarItems} />  
-        <Alert />
+        {/* <Alert /> */}
         <Carousel />
         <h3>
         BEST SELLERS
