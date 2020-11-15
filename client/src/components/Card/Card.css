@@ -31,3 +31,7 @@ div .card-text {
 .card {
     display: inline-table !important;
 }
+
+p .card-text {
+    margin-bottom: 1em !important;
+}

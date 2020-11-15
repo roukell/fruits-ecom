@@ -1,7 +1,7 @@
 .circle {
-  background: #f1bbe4;
+  background: #E0AFA0;
   border-radius: 50%;
-  color: rgb(250, 244, 244);
+  color: #F4F3EE;
   height: 100px;
   position: relative;
   width: 100px;
@@ -13,31 +13,31 @@
   text-align: center;
   justify-content: center;
   padding-top:19px;
-  color: whitesmoke;
+  color: #F4F3EE;
   font-size: 18px !important;
   font-weight: 150 !important;
 }
 
 .mr-auto a {
-  color: rgb(100, 100, 100);
+  color: #463F3A;
   text-decoration: none;
   font-size: 16px;
   padding-left: 10px;
 }
 
 .mr-auto a :hover {
-  color: black;
+  color: #463F3A;
 }
 
 .login a{
-  color: rgb(100, 100, 100);
+  color: #463F3A;
   text-decoration: none;
   font-size: 16px;
   padding-right: 5px;
 }
 
 a.login.nav-link :hover {
-  color: black
+  color: #403935
 }
 
 .shoppingCart {
@@ -45,11 +45,11 @@ a.login.nav-link :hover {
 }
 
 a.dropdown-item.active  {
-  background-color: darkgray;
+  background-color: #8A817C;
 }
 
 a.dropdown-item:active {
-  background-color: darkgray;
+  background-color: #8A817C;
 }
 
 a#dropdown-basic-button {

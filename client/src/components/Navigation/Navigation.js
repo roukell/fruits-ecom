@@ -34,12 +34,12 @@ const Navigation = ({ items }) => {
 
     return (
         <>
-            <Navbar collapseOnSelect expand='lg' bg='light' sticky='top'>
+            <Navbar collapseOnSelect expand='lg' style={{ backgroundColor: '#FFFFFF'}} sticky='top'>
                 <Container>
 
                     {/* site logo */}
                     <Navbar.Brand className='circle'>
-                        <Link to='/' style={{ color: 'white', textDecoration: 'none' }}>
+                        <Link to='/' style={{ color: '#F4F3EE', textDecoration: 'none' }}>
                             <p className='circle-content'>
                                 Pure
                             <br />

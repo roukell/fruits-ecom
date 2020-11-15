@@ -21,7 +21,7 @@ const WarningModal = (props) => {
           position: 'absolute',
           width: 400,
           backgroundColor: theme.palette.background.paper,
-          border: '2px solid #C9C5BA',
+          border: '2px solid #F4F3EE',
           boxShadow: theme.shadows[5],
           padding: theme.spacing(2, 4, 3),
         },

@@ -63,7 +63,7 @@ function MyVerticallyCenteredModal(props) {
                 <Col sm={6}>
                   <Button
                     size='lg'
-                    variant='primary'
+                    variant='light'
                     block
                     onClick={() => updateOrder.onClick(title, quantity, price)} >
                     Add to cart

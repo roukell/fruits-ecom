@@ -47,7 +47,7 @@ const Checkout = () => {
         },
         buttons: {
             display: 'flex',
-            justifyContent: 'flex-end',
+            justifyContent: 'flex-end'
         },
         button: {
             marginTop: theme.spacing(3),
@@ -56,9 +56,6 @@ const Checkout = () => {
         listItem: {
             padding: theme.spacing(1, 0),
         },
-        // total: {
-        //     fontWeight: 700,
-        // },
         title: {
             marginTop: theme.spacing(2),
         },
@@ -96,11 +93,11 @@ const Checkout = () => {
             <ListItem className={classes.listItem} key={i} >
                 <ListItemText primary={item.title} secondary={'Quantity: ' + item.quantity + '       Price/unit: $' + item.price} />
                 <Typography variant="body2">{'$' + totalPrice} </Typography>
-                <span className='cancelIcon'>
+                {/* <span className='cancelIcon'>
                     <CancelIcon
                         onClick={() => orderState.onDelete(i)}
                     />
-                </span>
+                </span> */}
             </ListItem>
         )
     });
@@ -167,7 +164,6 @@ const Checkout = () => {
                                 {orderState.orders[0] ?
                                     <Button
                                         variant="contained"
-                                        color="primary"
                                         onClick={orderState.placeOrder}
                                         className={classes.button}
                                     >
@@ -176,7 +172,6 @@ const Checkout = () => {
                                     :
                                     <Button
                                         variant="contained"
-                                        color="primary"
                                         onClick={() => { window.location = '/' }}
                                         className={classes.button}
                                     >

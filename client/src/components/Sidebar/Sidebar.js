@@ -51,7 +51,9 @@ const MyRightSidebar = ({ visible, setVisible }) => {
                        Checkout 
                 </Button> 
                 : 
-                <h4>No items in cart</h4>}
+                <h4
+                style={{color: '#fff'}}
+                >No items in cart</h4>}
                 <br />
                 <br />
                 <Button animated='vertical'

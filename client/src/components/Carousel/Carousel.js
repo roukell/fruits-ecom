@@ -21,8 +21,8 @@ function ControlledCarousel() {
             alt="First slide"
           />
           <Carousel.Caption>
-           <h3>Okayama White Peach</h3>
-            <Button variant="primary">
+           {/* <h3>Okayama White Peach</h3> */}
+           <Button style={{backgroundColor: '#8A817C', borderColor: 'transparent'}}>
             <Link to='/preorder' style={{color: 'white', textDecoration: 'none'}}>
                 PRE ORDER
               </Link>
@@ -36,8 +36,8 @@ function ControlledCarousel() {
             alt="Second slide"
           />
           <Carousel.Caption>
-           <h3>Pearl White Strawberry</h3>
-            <Button variant="primary">
+           {/* <h3>Pearl White Strawberry</h3> */}
+            <Button style={{backgroundColor: '#8A817C', borderColor: 'transparent'}}>
               <Link to='/preorder' style={{color: 'white', textDecoration: 'none'}}>
                 PRE ORDER
               </Link>
