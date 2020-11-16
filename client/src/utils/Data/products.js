@@ -24,7 +24,7 @@ const products = [
     description: 'Japanese muscat grapes are larger than the average grape and have an oval to oblong shape, growing in tightly packed, medium-sized bunches. The skin is taut, smooth, and glossy, ranging in color from bright green, pink, to red, depending on the specific variety. Underneath the surface, the flesh is generally translucent, soft, aqueous, and nearly seedless, though some varieties may contain a few, small undeveloped seeds. Japanese muscat grapes have a crisp, snap-like quality followed by a soft, juicy consistency. The grapes have high sugar content, averaging 18 Brix, and are known for their sweet, floral flavor with notes of tropical fruits, honey, and musk.'
   },
   {
-    title: 'Crown muskmelons',
+    title: 'Crown Muskmelon',
     text: 'The aroma and flavor of these melons are the most gracious to enjoy, with limitless juice that flows with each bite.',
     price: '150',
     unit: '1 per box',
