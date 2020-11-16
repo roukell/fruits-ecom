@@ -32,8 +32,26 @@ p {
     padding-bottom: 10px !important;
 }
 
-@media only screen and (max-width: 1024px) {
-    .card-columns .card {
-        display: contents;
+@media only screen and (max-width: 1200px) {
+    .card-columns {
+        column-count: 2 !important;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .card-columns {
+        column-count: 1 !important;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .card-columns {
+        column-count: 1 !important;
+        justify-content: center;
+        text-align: center;
     }
 }

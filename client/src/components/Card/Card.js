@@ -27,7 +27,7 @@ const Cards = ({ items }) => {
     // render products items
     const cardItems = items.map((item) => {
         return (
-            <Card border='light' style={{ width: '25rem' }} key={item.title}>
+            <Card border='light' key={item.title}>
                 <Card.Img variant="top" src={'image/' + item.image} />
                 <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
