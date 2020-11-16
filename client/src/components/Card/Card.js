@@ -28,7 +28,11 @@ const Cards = ({ items }) => {
     const cardItems = items.map((item) => {
         return (
             <Card border='light' key={item.title}>
-                <Card.Img variant="top" src={'image/' + item.image} />
+                <Card.Img
+                    variant='top'
+                    src={'image/' + item.image}
+                    onClick={() => clickFunctions({ item })}
+                />
                 <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
                     <Card.Text>
