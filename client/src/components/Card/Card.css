@@ -28,10 +28,16 @@ div .card-text {
     font-size: medium;
 }
 
-.card {
+/* .card {
     display: inline-table !important;
-}
+} */
 
 p {
     padding-bottom: 10px !important;
+}
+
+@media only screen and (max-width: 1024px) {
+    .card-columns .card {
+        display: contents;
+    }
 }

@@ -15,7 +15,7 @@ export default {
       .catch(error => {
         console.log(error);
         if (error) {
-          alert('Incorrect username or password');
+          // alert('Incorrect username or password');
           return;
         }
       });
