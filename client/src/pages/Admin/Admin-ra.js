@@ -1,7 +1,8 @@
+/* eslint-disable object-shorthand */
 import React, { useEffect, useState } from 'react';
-import authProvider from './authProvider';
 import { Admin, Resource, ShowGuesser } from 'react-admin';
 import DataProvider from 'ra-data-fakerest';
+import authProvider from './authProvider';
 import API from '../../utils/API';
 import OrderList from './OrderList';
 import CustomerList from './CustomerList';
@@ -18,7 +19,7 @@ const AdminRA = () => {
             setCustomers(getAPIcustomer.data);
         }
         getCustomers();
-    }, [])
+    }, []);
 
     useEffect(() => {
         // get order details from API
@@ -27,19 +28,19 @@ const AdminRA = () => {
             setOrders(getAPIorder.data);
         }
         getOrders();
-    }, [])
+    }, []);
 
     const dataProvider = DataProvider({
         customers: customers,
         orders: orders
-    })
+    });
 
     return (
         <Admin dashboard={Dashboard} dataProvider={dataProvider} authProvider={authProvider}>
             <Resource name="customers" list={CustomerList} />
             <Resource name="orders" list={OrderList} show={ShowGuesser} />
         </Admin>
-    )
+    );
 };
 
 export default AdminRA;

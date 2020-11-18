@@ -1,5 +1,6 @@
 // Requiring necessary npm packages
-const express = require("express");
+const express = require('express');
+const path = require('path');
 // Requiring passport as we've configured it
 const mongoose = require('mongoose');
 const passport = require('passport');
@@ -49,7 +50,7 @@ app.use(ordersRouter);
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/fruitEcom",
+  process.env.MONGODB_URI || 'mongodb://localhost/fruitEcom',
   {
     useCreateIndex: true,
     useNewUrlParser: true
@@ -61,14 +62,10 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 
   // Express serve up index.html file if it doesn't recognize route
-  const path = require('path');
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
 }
 
 // Start the API server
-app.listen(PORT, () =>
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
-);
-
+app.listen(PORT, () => console.warn(`🌎  ==> API Server now listening on PORT ${PORT}!`));

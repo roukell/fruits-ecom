@@ -1,20 +1,20 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
-import Footer from '../../components/Footer/Footer.js';
-import customerNavbarItems from '../../utils/Data/customerNavbaritems.js';
-import API from '../../utils/API.js';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
+import API from '../../utils/API';
+import customerNavbarItems from '../../utils/Data/customerNavbaritems';
+import Footer from '../../components/Footer/Footer';
 import './Profile.css';
-import Navigation from '../../components/Navigation/Navigation.js';
+import Navigation from '../../components/Navigation/Navigation';
 
 const Profile = () => {
-    const useStyles = makeStyles((theme) => ({
+    const useStyles = makeStyles(theme => ({
         appBar: {
-            position: 'relative',
+            position: 'relative'
         },
         layout: {
             width: 'auto',
@@ -23,8 +23,8 @@ const Profile = () => {
             [theme.breakpoints.up(600 + theme.spacing(2) * 2)]: {
                 width: 600,
                 marginLeft: 'auto',
-                marginRight: 'auto',
-            },
+                marginRight: 'auto'
+            }
         },
         paper: {
             marginTop: theme.spacing(3),
@@ -33,20 +33,20 @@ const Profile = () => {
             [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
                 marginTop: theme.spacing(6),
                 marginBottom: theme.spacing(6),
-                padding: theme.spacing(3),
-            },
+                padding: theme.spacing(3)
+            }
         },
         stepper: {
-            padding: theme.spacing(3, 0, 5),
+            padding: theme.spacing(3, 0, 5)
         },
         buttons: {
             display: 'flex',
-            justifyContent: 'flex-end',
+            justifyContent: 'flex-end'
         },
         button: {
             marginTop: theme.spacing(3),
-            marginLeft: theme.spacing(1),
-        },
+            marginLeft: theme.spacing(1)
+        }
     }));
 
     const classes = useStyles();
@@ -56,14 +56,14 @@ const Profile = () => {
         const userFromLocal = JSON.parse(localStorage.getItem('user'));
 
         if (userFromLocal) {
-            const username = userFromLocal.username;
+            const { username } = userFromLocal;
             API.getCurrentLoggedInCustomerDetails({
-                username: username
+                username
             }).then(data => {
                 setCurrentCustomer(data.data);
-            })
+            });
         }
-    }, [])
+    }, []);
 
     const profileItems = (
         <>
@@ -71,7 +71,7 @@ const Profile = () => {
                 Details
             </Typography>
             <Grid container spacing={3}>
-            <Grid item xs={12}>
+                <Grid item xs={12}>
                     <TextField
                         id="username"
                         name="username"
@@ -80,8 +80,8 @@ const Profile = () => {
                         fullWidth
                         autoComplete="username"
                         InputLabelProps={{
-                            shrink: true,
-                          }}
+                            shrink: true
+                        }}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -93,8 +93,8 @@ const Profile = () => {
                         fullWidth
                         autoComplete="given-name"
                         InputLabelProps={{
-                            shrink: true,
-                          }}
+                            shrink: true
+                        }}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -106,8 +106,8 @@ const Profile = () => {
                         fullWidth
                         autoComplete="family-name"
                         InputLabelProps={{
-                            shrink: true,
-                          }}
+                            shrink: true
+                        }}
                     />
                 </Grid>
                 <Grid item xs={12}>
@@ -119,13 +119,13 @@ const Profile = () => {
                         fullWidth
                         autoComplete="email"
                         InputLabelProps={{
-                            shrink: true,
-                          }}
+                            shrink: true
+                        }}
                     />
                 </Grid>
             </Grid>
         </>
-    )
+    );
 
     return (
         <>
@@ -142,7 +142,7 @@ const Profile = () => {
             </Container>
             <Footer />
         </>
-    )
-}
+    );
+};
 
 export default Profile;

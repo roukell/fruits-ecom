@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Card, CardColumns, Container, Button } from 'react-bootstrap';
+import {
+    Card, CardColumns, Container, Button
+} from 'react-bootstrap';
 import './Card.css';
-import MyVerticallyCenteredModal from '../Modal/Modal.js';
+import MyVerticallyCenteredModal from '../Modal/Modal';
 
 const Cards = ({ items }) => {
     // modal variable
@@ -11,51 +13,49 @@ const Cards = ({ items }) => {
     // onClick function 1: setModalShow to true
     const handleModal = () => {
         setModalShow(true);
-    }
+    };
 
     // onClick function 2: setModalProduct to current product
     const handleProductChange = event => {
         setModalProduct(event.item);
-    }
+    };
 
     // when onClick, call both functions
-    const clickFunctions = (event) => {
+    const clickFunctions = event => {
         handleModal();
         handleProductChange(event);
-    }
+    };
 
     // render products items
-    const cardItems = items.map((item) => {
-        return (
-            <Card border='light' key={item.title}>
-                <Card.Img
-                    variant='top'
-                    src={'image/' + item.image}
-                    onClick={() => clickFunctions({ item })}
-                />
-                <Card.Body>
-                    <Card.Title>{item.title}</Card.Title>
-                    <Card.Text>
+    const cardItems = items.map(item => (
+        <Card border='light' key={item.title}>
+            <Card.Img
+                variant='top'
+                src={`image/${item.image}`}
+                onClick={() => clickFunctions({ item })}
+            />
+            <Card.Body>
+                <Card.Title>{item.title}</Card.Title>
+                <Card.Text>
                         ${item.price} / {item.unit}
-                    </Card.Text>
-                    <Button
-                        variant='light'
-                        size='md'
-                        block
-                        value={item}
-                        onClick={() => clickFunctions({ item })}
-                    >
+                </Card.Text>
+                <Button
+                    variant='light'
+                    size='md'
+                    block
+                    value={item}
+                    onClick={() => clickFunctions({ item })}
+                >
                         VIEW DETAILS
-                        </Button>
-                    <MyVerticallyCenteredModal
-                        value={modalProduct}
-                        show={modalShow}
-                        onHide={() => setModalShow(false)}
-                    />
-                </Card.Body>
-            </Card>
-        )
-    })
+                </Button>
+                <MyVerticallyCenteredModal
+                    value={modalProduct}
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                />
+            </Card.Body>
+        </Card>
+    ));
 
     return (
         <>
@@ -65,7 +65,7 @@ const Cards = ({ items }) => {
                 </CardColumns>
             </Container>
         </>
-    )
+    );
 };
 
 export default Cards;

@@ -1,25 +1,25 @@
 import React, { useContext } from 'react';
-import { Icon, Menu, Sidebar, Button } from 'semantic-ui-react';
+import {
+    Icon, Menu, Sidebar, Button
+} from 'semantic-ui-react';
 import './Sidebar.css';
-import OrderContext from '../../utils/Contexts/OrderContext.js';
 import CancelIcon from '@material-ui/icons/Cancel';
 import { Link } from 'react-router-dom';
+import OrderContext from '../../utils/Contexts/OrderContext';
 
 const MyRightSidebar = ({ visible, setVisible }) => {
     const orderState = useContext(OrderContext);
 
-    const mapMenuItems = orderState.orders.map((item, i) => {
-        return (
-            <Menu.Item key={i} >
-                {item.title} x {item.quantity}
-                <span className='cancelIcon'>
-                    <CancelIcon
-                        onClick={() => orderState.onDelete(i)}
-                    />
-                </span>
-            </Menu.Item>
-        )
-    });
+    const mapMenuItems = orderState.orders.map((item, i) => (
+        <Menu.Item key={i} >
+            {item.title} x {item.quantity}
+            <span className='cancelIcon'>
+                <CancelIcon
+                    onClick={() => orderState.onDelete(i)}
+                />
+            </span>
+        </Menu.Item>
+    ));
 
     return (
         <>
@@ -40,20 +40,19 @@ const MyRightSidebar = ({ visible, setVisible }) => {
                 <Menu.Item>
                     <Icon name='cart' />
                         Your Order
-                    </Menu.Item>
+                </Menu.Item>
 
                 <div>
                     {mapMenuItems}
                 </div>
                 {orderState.orders[0] ? <Button
-                    as={Link} 
+                    as={Link}
                     to='/checkout'>
-                       Checkout 
-                </Button> 
-                : 
-                <h4
-                style={{color: '#fff'}}
-                >No items in cart</h4>}
+                       Checkout
+                </Button>
+                    : <h4
+                        style={{ color: '#fff' }}
+                    >No items in cart</h4>}
                 <br />
                 <br />
                 <Button animated='vertical'
@@ -66,7 +65,7 @@ const MyRightSidebar = ({ visible, setVisible }) => {
                 </Button>
             </Sidebar>
         </>
-    )
-}
+    );
+};
 
 export default MyRightSidebar;

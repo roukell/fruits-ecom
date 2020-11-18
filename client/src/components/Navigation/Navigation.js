@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import {
+    Navbar, Nav, Container, NavDropdown
+} from 'react-bootstrap';
 import Badge from '@material-ui/core/Badge';
 import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import Sidebar from '../Sidebar/Sidebar.js';
-import API from '../../utils/API.js';
-import UserContext from '../../utils/Contexts/UserContext.js';
+import Sidebar from '../Sidebar/Sidebar';
+import API from '../../utils/API';
+import UserContext from '../../utils/Contexts/UserContext';
 import './Navigation.css';
 
 const Navigation = ({ items }) => {
@@ -17,24 +19,24 @@ const Navigation = ({ items }) => {
     const [customerDetails, setCustomerDetails] = useContext(UserContext);
 
     // sytle badbe for shopping cart icon
-    const StyledBadge = withStyles((theme) => ({
+    const StyledBadge = withStyles(theme => ({
         badge: {
             right: -3,
             top: 13,
             border: `2px solid ${theme.palette.background.paper}`,
-            padding: '0 4px',
-        },
+            padding: '0 4px'
+        }
     }))(Badge);
 
     const signOutCustomer = event => {
         event.preventDefault();
         API.logOutCustomer()
-            .then(data => setCustomerDetails())
+            .then(() => setCustomerDetails());
     };
 
     return (
         <>
-            <Navbar collapseOnSelect expand='lg' style={{ backgroundColor: '#FFFFFF'}} sticky='top'>
+            <Navbar collapseOnSelect expand='lg' style={{ backgroundColor: '#FFFFFF' }} sticky='top'>
                 <Container>
 
                     {/* site logo */}
@@ -42,7 +44,7 @@ const Navigation = ({ items }) => {
                         <Link to='/' style={{ color: '#F4F3EE', textDecoration: 'none' }}>
                             <p className='circle-content'>
                                 Pure
-                            <br />
+                                <br />
                                 Fruit
                             </p>
                         </Link>
@@ -52,22 +54,21 @@ const Navigation = ({ items }) => {
                     <Navbar.Toggle aria-controls='responsive-navbar-nav' />
                     <Navbar.Collapse id='responsive-navbar-nav'>
                         <Nav className='mr-auto'>
-                            {items.map(({ label, name, link }, i) => (
+                            {items.map(({ label, link }, i) => (
                                 <Nav.Link key={i} as={Link} to={link}>{label}</Nav.Link>
                             ))}
                         </Nav>
                         <Nav>
-                            {customerDetails ?
-                                <NavDropdown
+                            {customerDetails
+                                ? <NavDropdown
                                     id="dropdown-basic-button"
-                                    title={'Welcome ' + customerDetails['firstName']}
+                                    title={`Welcome ${customerDetails.firstName}`}
                                     variant='light'
                                 >
                                     <NavDropdown.Item as={Link} to='/profile' variant="success">Profile</NavDropdown.Item>
                                     <NavDropdown.Item as={Link} to='/orderHistory'>Order History</NavDropdown.Item>
                                 </NavDropdown>
-                                :
-                                <Nav.Item></Nav.Item>}
+                                : <Nav.Item></Nav.Item>}
                         </Nav>
 
                         {/* login */}
@@ -94,7 +95,7 @@ const Navigation = ({ items }) => {
                 setVisible={setVisible}
             />
         </>
-    )
-}
+    );
+};
 
 export default Navigation;

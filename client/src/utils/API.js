@@ -1,68 +1,66 @@
-import axios from "axios";
+/* eslint-disable no-return-assign */
+import axios from 'axios';
 
 export default {
-  saveCustomerSignUpForm: function (signUpData) {
-    return axios.post('/signup', signUpData)
-      .then(data => window.location = '/signin');
-  },
+    saveCustomerSignUpForm(signUpData) {
+        return axios.post('/signup', signUpData)
+            .then(() => window.location = '/signin');
+    },
 
-  logInCustomer: function (logInData) {
-    return axios.post('/login', logInData)
-      .then(data => {
-        window.location = '/';
-        return data;
-      })
-      .catch(error => {
-        console.log(error);
-        if (error) {
-          // alert('Incorrect username or password');
-          return;
-        }
-      });
-  },
+    logInCustomer(logInData) {
+        return axios.post('/login', logInData)
+            .then(data => {
+                window.location = '/';
+                return data;
+            })
+            .catch(error => {
+                if (error) {
+                    console.error(error);
+                }
+            });
+    },
 
-  logOutCustomer: function () {
-    return axios.get('/logout ')
-      .then(data => {
-        localStorage.removeItem('user');
-        window.location = '/';
-      }
-      )
-      .catch(error => {
-        console.log(error)
-      })
-  },
+    logOutCustomer() {
+        return axios.get('/logout ')
+            .then(() => {
+                localStorage.removeItem('user');
+                window.location = '/';
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    },
 
-  sendOrderToBackend: function (orders) {
-    return axios.post('/sendorder', orders)
-      .catch(error => {
-        console.log(error);
-        if (error) {
-          return
-        }
-      })
-  },
+    sendOrderToBackend(orders) {
+        return axios.post('/sendorder', orders)
+            .catch(error => {
+                if (error) {
+                    console.error(error);
+                }
+            });
+    },
 
-  getCustomerDetails: function (req, res) {
-    return axios.get('/api/getCustomerDetails')
-  },
+    getCustomerDetails() {
+        return axios.get('/api/getCustomerDetails');
+    },
 
-  getOrders: function () {
-    return axios.get('/api/getOrders')
-  },
+    getOrders() {
+        return axios.get('/api/getOrders');
+    },
 
-  getCurrentLoggedInCustomerDetails: function (user) {
-    return axios.post('/api/getCurrentLoggedInCustomerDetails', user)
-      .then(data => {
-        return data
-      })
-  },
+    getCurrentLoggedInCustomerDetails(user) {
+        return axios.post('/api/getCurrentLoggedInCustomerDetails', user)
+            // eslint-disable-next-line arrow-body-style
+            .then(data => {
+                return data;
+            });
+    },
 
-  getCurrentLoggedInCustomerOrderHistory: function (user) {
-    return axios.post('/api/getCurrentLoggedInCustomerOrderHistory', user)
-    .then(data => {
-      return data
-    })
-  }
-
+    getCurrentLoggedInCustomerOrderHistory(user) {
+        return axios.post('/api/getCurrentLoggedInCustomerOrderHistory', user)
+            // eslint-disable-next-line arrow-body-style
+            .then(data => {
+                return data;
+            });
+    }
 };
