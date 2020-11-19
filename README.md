@@ -32,7 +32,7 @@
   password: admin
 
   ## Technologies used  
-  Node.js, Express, MongoDB, Mongoose,React, Heroku, Passport local Mongoose, axios, React router DOM, React Ticker, JSON web token (JWT), Express-session, dateformat  
+  Node.js, Express, MongoDB, Mongoose,React, Heroku, Passport local Mongoose, axios, React router DOM, React Ticker, JSON web token (JWT), Express-session, dateformat, ESlint
 
   Framework: Bootstrap, Material UI, Semantic UI, React Admin
 
