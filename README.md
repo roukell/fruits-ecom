@@ -30,7 +30,12 @@
   ## Installation
   To install necessary dependencies, run the following command:
 
-      npm i
+`npm i`
+
+   To start application locally, run:
+
+`npm run start:dev`
+   
 
   ## Usage
   To use this app directly, click on the Heroku link: https://nameless-oasis-57757.herokuapp.com/
