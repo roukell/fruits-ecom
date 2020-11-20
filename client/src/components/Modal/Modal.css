@@ -19,3 +19,7 @@
 div.modalTitle {
    padding-left: 2%;
 }
+
+.modal-backdrop {
+    display: none; 
+}
